@@ -1,0 +1,35 @@
+body {
+  background: $color-white;
+  font-family: $font-family-base;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+  color: $color-accent1-tint1;
+  fill: $color-accent1-tint1;
+  min-width: 37.5rem;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+
+  //sass-lint:disable no-vendor-prefixes
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-print-color-adjust: exact;
+  //sass-lint:enable no-vendor-prefixes
+
+  @include respond-to(tablet, landscape, max) {
+    padding-bottom: 7.2rem; // Bottom bar
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+
+  &.body--navigation-visible,
+  &.body--search-visible {
+    @include respond-to(tablet, portrait, max) {
+      overflow: hidden;
+    }
+  }
+}

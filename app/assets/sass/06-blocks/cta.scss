@@ -1,0 +1,63 @@
+.cta {
+  overflow: hidden;
+  position: relative;
+  background: {
+    color: $color-accent1-tint3;
+    position: center center;
+    size: cover;
+  }
+  padding: 2.5rem 2.5rem 0;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-size: cover;
+
+  @include respond-to('tablet', 'portrait') {
+    padding: 4rem 4rem 0;
+  }
+
+  @include respond-to('desktop', 'large') {
+    padding: 6rem 6rem 0;
+  }
+
+  &__title {
+    @extend .h3;
+    z-index: 1;
+    margin: auto 0;
+    align-self: stretch;
+    @include respond-to('tablet', 'portrait') {
+      margin: 0;
+    }
+    .cta--with-image:not(.cta--large) & {
+      @extend .h2;
+      margin: auto 0;
+    }
+    .cta--large & {
+      @extend .h1;
+      margin: auto 0;
+    }
+  }
+  
+  &__link {
+    z-index: 1;
+    padding-bottom: 2.5rem;
+    @include respond-to('tablet', 'portrait') {
+      padding-bottom: 4rem;
+      .cta--with-image & {
+        transform: translateY(100%);
+        transition: transform .33s; 
+      }
+      .cta--with-image:hover & {
+        transform: translateY(0%);
+      }       
+    }
+    @include respond-to('desktop', 'large') {
+      padding-bottom: 6rem;
+    }    
+  }
+}
+.cta--with-image {
+  @include background-gradient-base($color-accent1-tint3)
+}

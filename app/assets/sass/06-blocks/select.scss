@@ -1,0 +1,210 @@
+.select {
+  &__container {
+    position: relative;
+  }
+  &__control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 4.8rem;
+    cursor: text;
+    // &--is-focused,
+    // &:hover {
+    //   margin: -0.1rem;
+    //   border: 0.1rem solid rgb(38, 132, 255);
+    // }
+  }
+  &__value-container {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1 1 0%;
+    padding: 1.1rem 0;
+    > div:last-child {
+      //Text input element
+      &::placeholder {
+        color: $color-black;
+        .theme-dark & {
+          color: rgba($color-white, .4);
+        }
+      }
+    }
+  }
+  &__single-value {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: calc(100% - .8rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  &__multi-value {
+    display: flex;
+    margin-right: .3rem;
+    padding: 0 .7rem;
+    border-radius: .2rem;
+    background: $color-accent1-tint1;
+  }
+  //&__multi-value__label { //sass-lint:disable-line bem-depth
+  //}
+  //sass-lint:disable bem-depth
+  &__multi-value__remove {
+    //sass-lint:enable bem-depth
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    max-width: calc(100% - 2rem);
+    transform: translateY(-50%);
+    color: $color-black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .theme-dark & {
+      color: rgba($color-white, .4);
+    }
+  }
+  // &__input {
+  // }
+  &__indicators {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex-shrink: 0;
+    height: 4.8rem;
+  }
+  &__indicator-separator {
+    display: none;
+  }
+  &__indicator {
+    display: flex;
+    align-items: center;
+    outline: 0;
+    height: 100%;
+    padding: 0 1.4rem;
+    fill: $color-black;
+    .theme-dark & {
+      fill: inherit;
+    }
+    // &.select__dropdown-indicator {
+    // }
+  }
+  &__dropdown-indicator {
+    pointer-events: none;
+    .icon {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+  }
+  &__clear-indicator {
+    cursor: pointer;
+    .icon {
+      width: 2.6rem;
+      height: 2.6rem;
+      transform: scale(0.8);
+    }
+  }
+  // &__loading-indicator {
+  //   margin-right: 1.4rem;
+  // }
+
+  &__menu {
+    position: absolute;
+    z-index: 3;
+    top: 100%;
+    right: 0;
+    width: calc(100% + .2rem);
+    margin: 1.7rem -.1rem;
+    background-color: $color-white;
+    color: $color-black;
+    border: 0.1rem solid $color-accent1-tint1;
+    border-radius: 0.3rem;
+
+    .theme-dark & {
+      border: none;
+      box-shadow: 0 .2rem 1.2rem 0 rgba($color-black, 0.25);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1.7rem;
+        right: 1.3rem;
+        display: block;
+        width: 1.7rem;
+        height: 1.7rem;
+        background: $color-white;
+        box-shadow: -.2rem -.2rem .5rem 0 rgba($color-black, 0.25);
+        transform: translateY(1rem) scaleX(0.8) rotate(45deg);
+        z-index: 1;
+      }
+    }
+  }
+  &__menu-list {
+    position: relative;
+    z-index: 2;
+    max-height: 30rem;
+    overflow-y: auto;
+    background: $color-white;
+    border-radius: 3px;
+  }
+  &__menu-notice {
+    padding: 1.1rem 1.4rem;
+    &--no-options {
+      background: $color-lightdanger;
+      color: $color-danger;
+    }
+    // &--loading {
+    // }
+  }
+  &__option {
+    position: relative;
+    padding: 1.2rem 2.5rem 1rem;
+    user-select: none;
+    cursor: pointer;
+    white-space: pre-wrap;
+    color: $color-accent1-tint2;
+    font-weight: bold;
+
+    &:hover,
+    &--is-focused,
+    &--is-selected {
+      color: $color-accent1-tint1;
+      background: rgba($color-accent1-tint1, 0.07);
+    }
+
+    &--is-disabled {
+      background-color: transparent;
+      color: $color-accent1-tint2;
+      cursor: default;
+      &:hover {
+        background-color: transparent;
+        color: $color-accent1-tint2;
+      }
+    }
+
+    &:not(:last-child) {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -.1rem;
+        left: 0;
+        width: calc(100% - 5rem);
+        height: 2px;
+        margin: 0 2.5rem;
+        background: $color-grey;
+      }
+    }
+  }
+  &__loading-message {
+    padding: 1.1rem 1.4rem;
+    user-select: none;
+  }
+}

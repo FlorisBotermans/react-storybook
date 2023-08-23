@@ -1,0 +1,57 @@
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 3; // Above anchor menu
+  background-color: $color-grey;
+  &__banner {
+    background-color: $color-accent1-tint3;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem;
+    @include respond-to('tablet', 'portrait') {
+      padding: 9rem 2.5rem;
+    }
+  }
+  &__blocks {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 100vh;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @include respond-to('tablet', 'portrait') {
+      flex-direction: column;
+    }
+  }
+  &__block {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    width: 100%;
+    min-height: 50vh;
+    @include respond-to('phone', 'landscape') {
+      width: 50%;
+      min-height: auto;
+    }
+    @include respond-to('tablet', 'portrait') {
+      width: 33.3%;
+      flex: 1 1 0;
+    }
+    &:nth-child(3) {
+      width: 100%;
+      @include respond-to('tablet', 'portrait') {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 33.3%;
+        width: auto;
+      }
+    }
+  }
+  &__block-item {
+    flex: 1;
+  }
+}

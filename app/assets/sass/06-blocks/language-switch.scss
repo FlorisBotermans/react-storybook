@@ -1,0 +1,45 @@
+.language-switch {
+  @include button;
+  @include button--small;
+  @include button--rounded;
+  flex-shrink: 0;
+  display: flex;
+  margin-left: 1.4rem;
+  padding: 0.8rem 1.4rem 0.3rem;
+  background-color: $color-white;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  @include theme-colors {
+    color: $color-accent1-tint2;
+    fill: $color-accent1-tint2;
+  }
+  transition: all 0.2s linear, padding 0.2s ease-in 0.2s, margin 0.2s ease-in 0.2s;
+
+  &:hover,
+  &:focus {
+    margin-left: 0;
+    padding-left: 2.8rem;
+    transition: padding 0.2s ease-in, margin 0.2s ease-in;
+    @include theme-colors(false) {
+      background-color: $color-white;
+      color: $theme-color;
+      fill: $theme-color;
+    }
+  }
+  
+  &__icon {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.7rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+
+    .language-switch:hover &,
+    .language-switch:focus & {
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+  }
+}

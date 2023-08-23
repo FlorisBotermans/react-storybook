@@ -1,0 +1,6 @@
+.accordion-section {
+  &__group {
+    @include list--reset;
+    margin-top: 2rem;
+  }
+}

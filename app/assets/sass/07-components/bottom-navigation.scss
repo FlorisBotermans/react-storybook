@@ -1,0 +1,127 @@
+.bottom-navigation {
+  position: fixed;
+  z-index: 102;
+  bottom: 0;
+  width: 100%;
+  height: 7.2rem;
+  background: $color-white;
+  box-shadow: rgba($color-black, .1) 0 -2rem 4rem;
+
+  @include respond-to(tablet, landscape) {
+    display: none;
+  }
+
+  &__list {
+    @include list--reset;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  &__item {
+    position: relative;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
+
+    &:nth-child(2) {
+      width: 9.6rem;
+    }
+
+    // &--highlight {
+    //   @include theme-colors(false) {
+    //     color: $theme-color;
+    //     fill: $theme-color;
+    //   }
+    // }
+  }
+
+  &__btn {
+    @include button;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+    text-transform: lowercase;
+    @include theme-colors(false) {
+      color: $theme-color;
+      fill: $theme-color;
+    }
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      @include theme-colors(false) {
+        color: mix($color-black, $theme-color, 25);
+        fill: mix($color-black, $theme-color, 25);
+      }
+    }
+
+    &:not(.bottom-navigation__btn--highlight) {
+      @include theme-colors(false) {
+        color: $color-accent1-tint1;
+        fill: $color-accent1-tint1;
+      }
+    
+      &:hover,
+      &:active,
+      &:focus-visible {
+        @include theme-colors(false) {
+          color: $color-accent1-tint3;
+          fill: $color-accent1-tint3;
+        }
+      }
+    }
+  }
+
+  &__icon-highlight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.7rem;
+    height: 4.7rem;
+    border-radius: .4rem;
+    fill: $color-white;
+    background: currentColor;
+    transition: background-color .15s;
+
+    $btn: '.bottom-navigation__btn';
+    #{$btn}:hover &,
+    #{$btn}:active &,
+    #{$btn}:focus-visible & {
+      @include theme-colors(false) {
+        background: currentColor;
+      }
+    }
+  }
+
+  &__icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    fill: inherit;
+
+    &--open {
+      .body--navigation-visible & {
+        display: none;
+      }
+    }
+    
+    &--close {
+      body:not(.body--navigation-visible) & {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    padding-top: .5rem;
+  }
+}

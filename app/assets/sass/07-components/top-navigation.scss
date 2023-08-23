@@ -1,0 +1,285 @@
+.top-navigation {
+  @include respond-to(tablet, landscape) {
+    height: 9.5rem;
+  }
+  &--no-search {
+    @include respond-to(tablet, landscape) {
+      height: 4.5rem;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 102;
+    @include respond-to(tablet, landscape, max) {
+      top: 100vh;
+      $bottom-navigation-height: 7.2rem;
+      height: calc(100vh - $bottom-navigation-height);
+      background: $color-white;
+      transition: transform .5s, visibility .5s;
+      visibility: hidden;
+    }
+    @include respond-to(tablet, landscape) {
+      z-index: 100;
+    }
+
+    .top-navigation--search-visible & {
+      @include respond-to(tablet, landscape, max) {
+        transform: translateY(-100vh);
+        visibility: visible;
+      }
+    }
+  }
+
+  &__container {
+    transition: margin-left .5s;
+    
+    .body--navigation-sticky & {
+      @include respond-to(tablet, landscape) {
+        margin-left: 27rem;
+      }
+    }
+  }
+
+  &__top {
+    color: $color-white;
+    fill: $color-white;
+    box-shadow: rgba($color-black, .1) 0 2rem 4rem;
+    @include theme-colors(false) {
+      background: $theme-color;
+    }
+
+    @include respond-to(tablet, landscape, max) {
+      display: none;
+    }
+  }
+
+  &__top-container {
+    @include container--center-wide;
+    display: flex;
+    align-items: center;
+    height: 4.5rem;
+  }
+
+  &__breadcrumbs {
+    margin: 0 auto 0 4.5rem;
+    overflow: hidden;
+    &::before {
+      content: '...';
+      position: absolute;
+    }
+  }
+
+  &__breadcrumbs-list {
+    @include list--reset;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    overflow: hidden;
+    height: 2.5rem;
+  }
+
+  &__breadcrumb {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      &::before {
+        content: '/';
+        margin: 0 3rem 0 4.5rem;
+        display: inline-block;
+        opacity: .5;
+        transform: rotate(20deg) scale(1.5);
+      }
+    }
+
+    @for $i from 0 to 10 {
+      &:nth-child(#{$i}) {
+        order: #{10 - $i};
+      }
+    }
+  }
+
+  @mixin breadcrumb-text {
+    position: relative;
+    max-width: 25rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @include theme-colors(false) {
+      background: $theme-color;
+    }
+
+    .top-navigation__breadcrumb:not(:last-child) & {
+      margin-right: -1.5rem;
+    }
+  }
+
+  &__breadcrumb-text {
+    @include breadcrumb-text;
+  }
+
+  &__breadcrumb-link {
+    @include breadcrumb-text;
+    @include link;
+    text-decoration: none;
+    color: inherit;
+    fill: inherit;
+    
+    &:hover,
+    &:focus {
+      @include theme-colors(false) {
+        color: rgba($color-white, .75);
+        fill: rgba($color-white, .75);
+      }
+    }
+  }
+
+  &__toggle {
+    appearance: none;
+    background: none;
+    margin: 0;
+    border: none;
+    padding: 0;
+    color: inherit;
+    fill: inherit;
+    cursor: pointer;
+    transition: color .15s, fill .15s;
+
+    &:hover,
+    &:focus {
+      @include theme-colors(false) {
+        color: rgba($color-white, .75);
+        fill: rgba($color-white, .75);
+      }
+    }
+  }
+
+  &__toggle-icon {
+    transform: scale(.7) rotate(90deg);
+    transition: transform .15s;
+
+    .top-navigation__toggle--toggled & {
+      transform: scale(.7) rotate(90deg) scaleX(-1);
+    }
+  }
+
+  &__account {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    margin-left: 4.5rem;
+    padding: 0;
+
+    .navigation__section {
+      top: auto;
+      right: 0;
+      margin: 0 -2rem 0 0;
+    }
+
+    .navigation__section-container {
+      margin: 1.5rem 1rem 1rem;
+      color: $color-white;
+      fill: $color-white;
+      @include theme-colors(false) {
+        background: $theme-color;
+      }
+    }
+
+    .navigation__list-link {
+      &:hover,
+      &:focus {
+        @include theme-colors(false) {
+          color: rgba($color-white, .75);
+          fill: rgba($color-white, .75);
+        }
+      }
+    }
+  }
+
+  &__account-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__account-name {
+    margin-top: .2rem;
+    max-width: 20rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__account-avatar {
+    width: 2.6rem;
+    height: 2.6rem;
+    margin-left: .8rem;
+    background: $color-accent1-tint2;
+    overflow: hidden;
+    color: transparent;
+  }
+
+  &__language-switch-btn {
+    margin-left: 1rem;
+  }
+
+  &__search {
+    @include respond-to(tablet, landscape, max) {
+      margin-top: 2.5rem;
+    }
+    @include respond-to(tablet, landscape) {
+      background: $color-white;
+      box-shadow: rgba($color-accent1-tint2, .1) 0 2rem 4rem;
+      visibility: hidden;
+      opacity: 0;  
+      transition: opacity .25s 0s, visibility .25s 0s;
+    }
+
+    .top-navigation--search-visible & {
+      @include respond-to(tablet, landscape) {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity .25s 0s;
+      }
+    }
+  }
+
+  &__search-container {
+    @include container--center-wide;
+  }
+
+  &__search-content {
+    @include respond-to(tablet, landscape) {
+      margin-left: 4.5rem;
+    }
+  }
+
+  &__search-close {
+    @include button;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    padding: 0;
+    @include theme-colors(false) {
+      fill: $theme-color;
+    }
+    @include respond-to(tablet, landscape) {
+      display: none;
+    }
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      @include theme-colors(false) {
+        fill: mix($color-black, $theme-color, 25);
+      }
+    }
+  }
+}

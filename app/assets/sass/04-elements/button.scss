@@ -1,0 +1,45 @@
+@mixin button {
+  @extend .h4;
+  appearance: none;
+  outline: 0;
+  display: table;
+  position: relative;
+  padding: 0 3.5rem 0 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: $color-accent2-tint1;
+  fill: $color-accent2-tint1;
+  font-family: inherit;
+  line-height: 3rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .15s, fill .15s, color .15s;
+
+  .theme-dark & {
+    color: $color-white;
+    fill: $color-accent2-tint1;
+  }
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: $color-accent2-tint3;
+    fill: $color-accent2-tint3;
+    
+    .theme-dark & {
+      color: $color-accent2-tint1;
+      fill: $color-accent2-tint1;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+button:not([class]) {
+  @include button;
+}

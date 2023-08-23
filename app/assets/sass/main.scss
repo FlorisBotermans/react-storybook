@@ -1,0 +1,124 @@
+//Settings (Variables)
+@import '01-settings/colors';
+@import '01-settings/variables';
+
+//Tools (Mixins)
+@import '02-tools/clearfix';
+@import '02-tools/responsive';
+@import '02-tools/line-clamp';
+@import '02-tools/scrollbar';
+@import '02-tools/background-gradient';
+@import '02-tools/animation';
+@import '02-tools/not-ios';
+@import '02-tools/str-replace';
+@import '02-tools/theme';
+
+//Generic (Resets)
+@import '03-generic/normalize';
+@import '03-generic/typo';
+@import '03-generic/swiper';
+
+//Elements (Default styling for HTML tags.)
+@import '04-elements/html';
+@import '04-elements/a';
+@import '04-elements/article';
+@import '04-elements/b';
+@import '04-elements/body';
+@import '04-elements/button';
+@import '04-elements/code';
+@import '04-elements/fields';
+@import '04-elements/h';
+@import '04-elements/hr';
+@import '04-elements/img';
+@import '04-elements/lists';
+@import '04-elements/p';
+@import '04-elements/pre';
+@import '04-elements/small';
+@import '04-elements/main';
+
+//Objects (Styles often single element. Can re-use styling of an Element. And is re-used and contained a lot by Blocks and Components.)
+@import '05-objects/button';
+@import '05-objects/container';
+@import '05-objects/icon';
+@import '05-objects/image';
+@import '05-objects/line';
+@import '05-objects/link';
+@import '05-objects/list';
+@import '05-objects/paragraph';
+@import '05-objects/theme-dark';
+@import '05-objects/tabs';
+@import '05-objects/cta-button';
+@import '05-objects/row';
+
+//Blocks (Contains & re-uses Objects but no other blocks.)
+@import '06-blocks/datepicker';
+@import '06-blocks/field';
+@import '06-blocks/field__searchtext';
+@import '06-blocks/form';
+@import '06-blocks/form-steps';
+@import '06-blocks/overlay';
+@import '06-blocks/select';
+@import '06-blocks/fullscreen-block';
+@import '06-blocks/grid-block';
+@import '06-blocks/link-block';
+@import '06-blocks/cta';
+@import '06-blocks/breadcrumb';
+@import '06-blocks/grid';
+@import '06-blocks/scrollbar';
+@import '06-blocks/video';
+@import '06-blocks/scroll-button';
+@import '06-blocks/calendar';
+@import '06-blocks/tooltip';
+@import '06-blocks/follow';
+@import '06-blocks/language-switch';
+
+//Components (Contains & re-uses Blocks, Objects. Cannot be contained or re-used.)
+@import '07-components/navigation';
+@import '07-components/top-navigation';
+@import '07-components/bottom-navigation';
+@import '07-components/header';
+@import '07-components/cookie-notification';
+@import '07-components/skiplinks';
+@import '07-components/anchor-menu';
+@import '07-components/anchor';
+@import '07-components/anchor-hero';
+@import '07-components/accordion';
+@import '07-components/accordion-section';
+@import '07-components/exposition';
+@import '07-components/contact-section';
+@import '07-components/subhome-section';
+@import '07-components/search';
+@import '07-components/search-result';
+@import '07-components/search-section';
+@import '07-components/cta-section';
+@import '07-components/kenmerken-section';
+@import '07-components/contact-info';
+@import '07-components/overview-section';
+@import '07-components/sidebar-nav';
+@import '07-components/school-section';
+@import '07-components/link-block-list';
+@import '07-components/actual-list';
+@import '07-components/school-info';
+@import '07-components/block-grid';
+@import '07-components/timeline-section';
+@import '07-components/timeline-tabs';
+@import '07-components/timeline-content';
+@import '07-components/media-section';
+@import '07-components/expositions-section';
+@import '07-components/block-grid-section';
+@import '07-components/calendar-section';
+@import '07-components/media-gallery-section';
+@import '07-components/editable-overview';
+@import '07-components/editable-overview-item';
+@import '07-components/available-overview';
+@import '07-components/available-overview-item';
+@import '07-components/available-overview-group';
+@import '07-components/card';
+
+//Trumps (Overrides)
+@import '08-trumps/sr-only';
+@import '08-trumps/themes';
+@import '08-trumps/viewports';
+@import '08-trumps/react';
+@import '08-trumps/swiper';
+@import '08-trumps/octo';

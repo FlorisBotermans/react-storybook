@@ -1,0 +1,13 @@
+.block-grid-section {
+  &__content-container {
+    @extend .container;
+    @extend .container--center-wide;
+    @extend .container--margin;
+  }
+  &__tabs-container {
+    @extend .container;
+    @extend .container--center-wide;
+    @include scrollbar-hide();
+    background: $color-white;
+  }
+}

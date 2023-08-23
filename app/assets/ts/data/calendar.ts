@@ -1,0 +1,181 @@
+const data = {
+  title: 'Kalender opendag 1 juni 2021',
+  intro: 'Dit is de kalendar van de opendag op <b>1 juni 2021</b>',
+  backwardsBtnText: 'eerder',
+  forwardsBtnText: 'later',
+  start: new Date('2021-06-01T06:00:00Z'),
+  end: new Date('2021-06-01T15:00:00Z'),
+  collections: [
+    {
+      id: 1,
+      title: 'Locatie Nieuwekade, Breda'
+    },
+    {
+      id: 2,
+      title: 'Locatie Oudenoord'
+    }
+  ],
+  groups: [
+    {
+      id: 1,
+      title: 'Opening',
+      collectionId: 1
+    },
+    {
+      id: 2,
+      title: 'Tentoonstellingen',
+      collectionId: 1
+    },
+    {
+      id: 3,
+      title: 'Demo',
+      collectionId: 2
+    },
+    {
+      id: 4,
+      title: 'Presentaties',
+      collectionId: 2
+    },
+    {
+      id: 5,
+      title: 'Kantine met een heel erg lange titel die je niet zomaar vergeet'
+    },
+    {
+      id: 7,
+      title: 'Groep zonder events'
+    }
+  ],
+  events: [
+    {
+      start: new Date('2021-06-01T06:35:00Z'),
+      end: new Date('2021-06-01T07:00:00Z'),
+      continuous: false,
+      title: 'Openings&shy;ceremonie met een heel erg lange titel die je niet zomaar vergeet',
+      description: 'De winnende ontwerpen van de nijntjes zijn sinds kort in de officiële \'De winkel van nijntje\' verkrijgbaar. Bekijk <a href="/fake">hier</a> het ontwerp.',
+      url: '',
+      groupId: 1
+    },
+    {
+      start: new Date('2021-06-01T06:35:00Z'),
+      end: new Date('2021-06-01T07:00:00Z'),
+      continuous: false,
+      title: 'Collection event',
+      collectionId: 1
+    },
+    {
+      start: new Date('2021-06-01T07:00:00Z'),
+      end: new Date('2021-06-01T08:00:00Z'),
+      continuous: false,
+      title: '',
+      url: '/opleiding',
+      groupId: 2
+    },
+    {
+      start: new Date('2021-06-01T07:30:00Z'),
+      end: new Date('2021-06-01T09:30:00Z'),
+      continuous: false,
+      title: '',
+      url: 'https://www.google.nl',
+      groupId: 2
+    },
+    {
+      start: new Date('2021-06-01T08:45:00Z'),
+      end: new Date('2021-06-01T09:30:00Z'),
+      continuous: false,
+      title: '',
+      url: '',
+      groupId: 2
+    },
+    {
+      start: new Date('2021-06-01T09:30:00Z'),
+      end: new Date('2021-06-01T10:30:00Z'),
+      continuous: false,
+      title: '',
+      url: '/home',
+      groupId: 2
+    },
+    {
+      start: new Date('2021-06-01T09:00:00Z'),
+      end: new Date('2021-06-01T09:45:00Z'),
+      continuous: false,
+      title: '',
+      url: '',
+      groupId: 2
+    },
+    {
+      start: new Date('2021-06-01T07:30:00Z'),
+      end: new Date('2021-06-01T08:30:00Z'),
+      continuous: false,
+      title: '',
+      url: '',
+      groupId: 3
+    },
+    {
+      start: new Date('2021-06-01T07:30:00Z'),
+      end: new Date('2021-06-01T09:30:00Z'),
+      continuous: false,
+      title: '',
+      url: '',
+      groupId: 4
+    },
+    {
+      start: new Date('2021-06-01T08:45:00Z'),
+      end: new Date('2021-06-01T09:30:00Z'),
+      continuous: false,
+      title: '',
+      url: '',
+      groupId: 4
+    },
+    {
+      start: new Date('2021-06-01T09:30:00Z'),
+      end: new Date('2021-06-01T10:30:00Z'),
+      continuous: false,
+      title: '',
+      url: '/opleiding',
+      groupId: 4
+    },
+    {
+      start: new Date('2021-06-01T07:00:00Z'),
+      end: new Date('2021-06-01T08:00:00Z'),
+      continuous: false,
+      title: '',
+      url: '',
+      groupId: 4
+    },
+    {
+      start: null,
+      end: null,
+      continuous: false,
+      title: 'Bekijk het menu',
+      url: '/opleiding',
+      groupId: 5
+    },
+    {
+      start: new Date('2021-06-01T08:00:00Z'),
+      end: new Date('2021-06-01T08:30:00Z'),
+      continuous: false,
+      title: 'Pauze',
+      description: 'De winnende ontwerpen van de nijntjes zijn sinds kort in de officiële \'De winkel van nijntje\' verkrijgbaar. Bekijk <a href="/fake">hier</a> het ontwerp.',
+      url: '',
+      groupId: 6
+    },
+    {
+      start: new Date('2021-06-01T10:00:00Z'),
+      end: new Date('2021-06-01T11:00:00Z'),
+      continuous: false,
+      title: 'Pauze',
+      url: '',
+      groupId: 6
+    },
+    {
+      start: new Date('2021-06-01T15:00:00Z'),
+      end: new Date('2021-06-01T16:00:00Z'),
+      continuous: false,
+      title: 'Borrel',
+      url: '',
+      groupId: 6
+    }
+  ]
+};
+
+export default data;

@@ -1,0 +1,205 @@
+$timeline-extra-breakpoint: 1490px;
+
+.timeline-section {
+  @extend .container--margin;
+  position: relative;
+  background: $color-white;
+  overflow: hidden;
+  &__tabs-container {
+    @extend .container;
+    @extend .container--center;
+    @include respond-to(tablet, portrait, max) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &__swiper {
+    position: relative;
+  }
+  &__swiper-fill-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__swiper-fill {
+    @extend .container;
+    @extend .container--center;
+    height: 100%;
+    @include respond-to(tablet, portrait, max) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      background: $color-grey;
+      
+      @include respond-to('tablet', 'portrait') {
+        margin-left: 25%;
+      }
+    
+      .row__column & {
+        @include respond-to('tablet', 'portrait') {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  &__swiper-center {
+    @extend .container;
+    @extend .container--center-wide;
+    @include respond-to(tablet, portrait, max) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 50%;
+      background: $color-grey;
+    }
+  }
+  &__swiper-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 2.5rem 0 7rem;
+    @include respond-to(tablet, portrait) {
+      margin: 3rem 0 6rem;
+    }
+    @include respond-to(tablet, landscape) {
+      margin: 8rem 0 6rem;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  &__buttons-center {
+    position: relative;
+    max-width: 107rem;
+    height: 100%;
+    margin: 0 auto;
+    @include respond-to(tablet, portrait, max) {
+      width: calc(100% - 4rem);
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 50vw;
+    }
+    &::before {
+      left: -50vw;
+      background: $color-white;
+    }
+    &::after {
+      right: -50vw;
+      background: $color-grey;
+    }
+  }
+
+  @mixin nav-button {
+    position: absolute;
+    z-index: 1;
+    height: 6.6rem;
+    width: 6.6rem;
+    background: transparent;
+    fill: $color-accent2-tint1;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    pointer-events: all;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 6.6rem solid transparent;
+    }
+  }
+  &__prev-button {
+    @include nav-button();
+    top: 0;
+    left: 0;
+    &::before {
+      border-top-color: $color-white;
+      border-left-width: 0;
+      border-bottom-width: 0;
+    }
+  }
+  &__prev-icon {
+    position: relative;
+    z-index: 2;
+    transform: scaleX(-1);
+  }
+  &__next-button {
+    @include nav-button();
+    bottom: 0;
+    right: 0;
+    &::before {
+      border-bottom-color: $color-grey;
+      border-top-width: 0;
+      border-right-width: 0;
+    }
+  }
+  &__next-icon {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__slide {
+    position: relative;
+    max-width: 107rem;
+    display: flex;
+    flex-direction: column;
+    @include respond-to(tablet, portrait) {
+      flex-direction: row;
+      height: 50rem;
+    }
+    @include respond-to(desktop, small) {
+      height: 60rem;
+    }
+  }
+  &__slide-image {
+    height: 20rem;
+    flex-shrink: 0;
+    background-color: $color-accent1-tint2;
+    background-size: cover;
+    background-position: center center;
+    @include respond-to(tablet, portrait, max) {
+      width: calc(100% - 4rem);
+      margin: 0 2rem;
+    }
+    @include respond-to(tablet, portrait) {
+      width: 30%;
+      height: auto;
+    }
+  }
+  &__slide-content {
+    flex: 1;
+    position: relative;
+    background: $color-white;
+    @include respond-to(tablet, portrait, max) {
+      width: calc(100% - 4rem);
+      margin: 0 2rem;
+    }
+  }
+}

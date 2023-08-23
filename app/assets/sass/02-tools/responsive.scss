@@ -1,0 +1,41 @@
+$devices: (
+  desktop: (
+    large: 1280,
+    small: 1024
+  ),
+  tablet: (
+    landscape: 991,
+    portrait: 769
+  ),
+  phone: (
+    landscape: 641,
+    // portrait: 321
+  )
+);
+
+@mixin respond-to($device, $orientation, $direction: 'min') {
+  $correction: 0;
+  @if (map-has-key($devices, $device)) {
+    $size: map-get(map-get($devices, $device), $orientation) + $correction;
+    $property: 'min-width';
+    @if ($direction == 'max') {
+      $property: 'max-width';
+      $size: $size - 1;
+    }
+    @if (
+      ($size <= 750 and $property == 'min-width') or ($size >= 750 and $property == 'max-width')
+    ) {
+      $size: $size + 'px';
+      @media print, screen and ($property: $size) {
+        @content;
+      }
+    } @else {
+      $size: $size + 'px';
+      @media only screen and ($property: $size) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'Device key not found.';
+  }
+}

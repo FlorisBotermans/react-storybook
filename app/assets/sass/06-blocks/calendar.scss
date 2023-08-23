@@ -1,0 +1,377 @@
+.calendar {
+  margin-top: 1rem;
+  @include respond-to(tablet, portrait) {
+    margin-top: 3rem;
+  }
+
+  &__navigation {
+    @supports (position: sticky) {
+      position: sticky;
+      top: 0;
+    }
+    display: flex;
+    justify-content: space-between;
+    @include respond-to(tablet, portrait) {
+      position: static;
+      justify-content: flex-end;
+    }
+  }
+
+  &__navigation-btn {
+    @extend .btn;
+    color: $color-accent1-tint1;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-right: 4rem;
+    }
+  }
+
+  &__navigation-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    &:first-child {
+      margin-right: 1.5rem;
+    }
+    &:last-child {
+      margin-left: 1.5rem;
+    }
+  }
+
+  &__navigation-icon--backwards {
+    transform: scaleX(-1);
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  $timeline-height: 2.7rem;
+  $group-background: $color-accent1-tint2;
+  $group-color: $color-white;
+  $group-max-width: 30%;
+  &__collections {
+    margin-top: $timeline-height;
+    max-width: $group-max-width;
+    border: 0.1rem solid $color-accent1-tint3;
+    border-right: none;
+
+    @include respond-to(tablet, portrait, max) {
+      display: none;
+    }
+  }
+
+  &__collection-info {
+    background: $color-white;
+    color: $color-accent1-tint1;
+    font-weight: bold;
+    padding: .3rem .7rem 0;
+    min-height: 3.4rem;
+    overflow: hidden;
+
+    &:not(:first-child) {
+      border-top: .1rem solid $color-accent1-tint3;
+    }
+  }
+
+  &__group-info-container {
+    background: $group-background;
+    color: $group-color;
+  }
+
+  &__group-info {
+    padding: .3rem .7rem 0;
+    min-height: 3.4rem;
+    overflow: hidden;
+
+    &:not(:first-child) {
+      border-top: .1rem solid $color-accent1-tint3;
+    }
+  }
+
+  &__group-info-container {
+    background: $group-background;
+    color: $group-color;
+  }
+
+  &__group-info {
+    padding: 0.3rem 0.7rem 0;
+
+    .calendar__group-info-container:not(:first-child) & {
+      border-top: 0.1rem solid $color-accent1-tint3;
+    }
+  }
+
+  &__timeline {
+    @supports (position: sticky) {
+      position: sticky;
+      z-index: 4;
+      top: 0;
+    }
+    display: flex;
+    height: $timeline-height;
+    background: $color-white;
+  }
+
+  &__timeline-unit,
+  &__events-timeline-unit {
+    flex-shrink: 0;
+    border-bottom: 0.1rem solid $color-accent1-tint3;
+
+    &:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      display: block;
+      margin-left: -0.1rem;
+      width: 0.1rem;
+      height: 100%;
+      background-color: rgba($color-accent1-tint3, 0.2);
+    }
+
+    &--minor {
+      &:not(:first-child)::before {
+        background-color: rgba($color-accent1-tint3, 0.4);
+      }
+    }
+  }
+
+  &__timeline-date {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  &__overview {
+    flex-shrink: 1;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 100% - $group-max-width;
+  }
+
+  &__overview-scroller {
+    height: 100%;
+    position: relative;
+    border: 0.1rem solid $color-accent1-tint3;
+    overflow-x: auto;
+    overflow-y: hidden;
+    @include scrollbar-hide();
+    scroll-snap-type: x;
+    @supports (position: sticky) {
+      overflow: auto;
+      @include respond-to(tablet, portrait, max) {
+        max-height: calc(100vh - 6.6rem - 6rem - 2rem);
+      }
+    }
+  }
+
+  &__events {
+    position: relative;
+  }
+
+  &__events-lanes {
+    min-height: 3.6rem;
+  }
+
+  &__events-lane {
+    display: flex;
+  }
+
+  &__events-timeline {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: stretch;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &__events-timeline-unit {
+    border-top: none;
+    border-bottom: none;
+    scroll-snap-align: none start;
+  }
+
+  &__events-collection {
+    position: relative;
+    z-index: 2;
+    background: $color-white;
+    min-height: 3rem;
+    &:not(:nth-child(2)) {
+      border-top: .1rem solid $color-accent1-tint3;
+    }
+    @include respond-to(tablet, portrait) {
+      min-height: 3.4rem;
+    }
+  }
+
+  &__events-collection-info {
+    @supports(position: sticky) {
+      position: sticky;
+      top: $timeline-height;
+    }
+  }
+
+  &__events-collection-title {
+    @supports(position: sticky) {
+      position: sticky;
+      left: 0;
+    }
+    width: fit-content;
+    max-width: calc(100vw - 5.2rem);
+    padding: .2rem .5rem 0 .7rem;
+    pointer-events: none;
+    color: $color-accent1-tint1;
+    font-weight: bold;
+    @include respond-to(tablet, portrait) {
+      display: none;
+    }
+  }
+
+  &__events-group {
+    .calendar__events-group-container:not(:nth-child(2)) & {
+      border-top: 0.1rem solid $color-accent1-tint3;
+    }
+  }
+
+  &__events-group-info {
+    position: relative;
+    z-index: 2;
+    @supports (position: sticky) {
+      position: sticky;
+      top: $timeline-height;
+    }
+    background: $group-background;
+    color: $group-color;
+    min-height: 3rem;
+    @include respond-to(tablet, portrait) {
+      display: none;
+    }
+  }
+
+  &__events-group-title {
+    @supports (position: sticky) {
+      position: sticky;
+      left: 0;
+    }
+    width: fit-content;
+    max-width: calc(100vw - 5.2rem);
+    padding: 0.2rem 0.5rem 0 0.7rem;
+    pointer-events: none;
+  }
+
+  &__event {
+    padding: 0.2rem;
+  } 
+
+  &__event-content {
+    @extend .btn--reset;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: .5rem 0;
+    background-color: $color-accent1-tint1;
+    color: $color-white;
+    fill: $color-white;
+    text-align: left;
+    cursor: default;
+    transition: background-color 0.15s;
+
+    &--link {
+      @extend .link--reset;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    @media (pointer: coarse), (hover: none) {
+      &--link:hover {
+        background-color: $color-accent1-tint1;
+      }
+      &[title]:hover::after {
+        content: attr(title);
+        pointer-events: none;
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        display: block;
+        background-color: $color-accent1-tint1;
+        color: $color-white;
+        width: fit-content;
+        max-width: calc(100vw - 8rem);
+        padding: 0.8rem 0.5rem 0.5rem;
+        white-space: pre-wrap;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+
+        &:hover {
+          background-color: $color-accent2-tint1;
+        }
+      }
+    }
+
+    .tooltip__btn {
+      display: block;
+      width: 100%;
+    }
+
+    .tooltip__overlay {
+      // Important because it needs to override the max-width in the style attribute
+      width: calc(35rem) !important; // sass-lint:disable-line no-important
+      max-width: calc(100vw - 6rem) !important; // sass-lint:disable-line no-important
+    }
+  }
+
+  &__event-blue {
+    background-color: $color-accent1-tint1;
+    color: $color-white;
+    &:hover,
+    &:active {
+      background-color: $color-accent2-tint1;
+    }
+  }
+
+  &__event-red {
+    background-color: $color-accent2-tint1;
+    color: $color-white;
+    &:hover,
+    &:active {
+      background-color: $color-accent1-tint1;
+    }
+  }
+
+  &__event-white {
+    background-color: $color-white;
+    color: $color-accent1-tint1;
+    border: 1px solid $color-accent1-tint1;
+    &:hover,
+    &:active {
+      background-color: $color-accent1-tint1;
+      color: $color-white;
+    }
+  }
+
+  &__event-title {
+    @supports (position: sticky) {
+      position: sticky;
+      left: 0.2rem;
+    }
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0 .5rem;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @supports (display: -webkit-box) {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-box-orient: vertical; //sass-lint:disable-line no-vendor-prefixes
+      -webkit-line-clamp: 2; //sass-lint:disable-line no-vendor-prefixes
+    }
+  }
+}

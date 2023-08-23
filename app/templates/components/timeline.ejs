@@ -1,0 +1,55 @@
+<%- Html.React("Components.TimelineSection", {
+    prevSlideText: 'Ga naar de vorige slide',
+    nextSlideText: 'Ga naar de volgende slide',
+    items: [
+        {
+            title: 'Tab 1',
+            imageUrls: Image('TimelineSlide', 0),
+            imageAlt: 'Afbeelding',
+            items: [
+                {
+                    content: '<h3>Studenten bepalen bij HKU grotendeels hun eigen route.</h3>Studenten bepalen bij HKU grotendeels hun <a href="/content">eigen route</a>. Omdat je je breed ontwikkelt, word je allround en specialist tegelijk. Dit zie je terug in de veelzijdigheid van het afstudeerwerk. Van gedurfd, urgent, eigenzinnig werk tot inventief opgezette, publieksvriendelijke genrefilms en commercieel gerichte opdrachtfilms.',
+                },
+                {
+                    content: 'Dit is content van tab 1 titel 2',
+                },
+                {
+                    content: 'Dit is content van tab 1 titel 3',
+                }
+            ]
+        },
+        {
+            title: 'Tab 2',
+            imageUrls: Image('TimelineSlide', 1),
+            imageAlt: 'Afbeelding',
+            items: [
+                {
+                    content: '<h3>Urgent, eigenzinnig werk tot inventief opgezette.</h3>Studenten bepalen bij <a href="/content">HKU grotendeels hun eigen route</a>. Omdat je je breed ontwikkelt, word je allround en specialist tegelijk. Dit zie je terug in de veelzijdigheid van het afstudeerwerk. Van gedurfd, urgent, eigenzinnig werk tot inventief opgezette, publieksvriendelijke genrefilms en commercieel gerichte opdrachtfilms.',
+                },
+                {
+                    content: 'Dit is content van tab 2 titel 2',
+                },
+                {
+                    content: 'Dit is content van tab 2 titel 3',
+                }
+            ]
+        },
+        {
+            title: 'Tab 3',
+            items: [
+                {
+                    title: 'Tab 3 Titel 1',
+                    content: 'Dit is content van tab 3 titel 1'
+                },
+                {
+                    title: 'Tab 3 Titel 2',
+                    content: 'Dit is content van tab 3 titel 2'
+                },
+                {
+                    title: 'Tab 3 Titel 3',
+                    content: 'Dit is content van tab 3 titel 3'
+                }
+            ]
+        }
+    ]
+}) %>

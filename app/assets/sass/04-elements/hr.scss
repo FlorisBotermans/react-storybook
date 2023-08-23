@@ -1,0 +1,9 @@
+@mixin hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 0.1rem solid $color-grey2;
+}
+
+hr:not([class]) {
+  @include hr;
+}

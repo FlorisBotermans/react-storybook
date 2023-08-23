@@ -1,0 +1,99 @@
+import { Image } from '../../../templates/helpers/image';
+
+const data = {
+  title: 'Agenda',
+  resultsTotalText: 'resultaten',
+  action: '/overview-results.json',
+  submitErrorMessage: 'Tijdens het versturen van het formulier is iets misgegaan. Probeer het later opnieuw.',
+  fields: [
+    {
+      type: 'searchtext',
+      placeholder: 'Zoeken',
+      label: 'Zoeken',
+      name: 'text',
+      value: '',
+      buttonText: 'Zoeken'
+    },
+    {
+      type: 'select',
+      placeholder: 'Type',
+      label: 'Type',
+      name: 'type',
+      value: '',
+      noOptionsMessage: 'Geen keuze beschikbaar',
+      options: [
+        {
+          label: 'Opleiding',
+          value: 'opleiding'
+        },
+        {
+          label: 'Nieuws',
+          value: 'nieuws'
+        },
+        {
+          label: 'Agenda',
+          value: 'agenda'
+        }
+      ]
+    }
+  ],
+  items: [
+    {
+      id: 1,
+      pageType: 'News',
+      title: '1 Grensverleggend onderwijs: MA Education in Arts!',
+      type: 'Nieuws',
+      imageUrls: Image('Block'),
+      linkUrl: '/nieuws/grensverleggend-onderwijs-ma-education',
+      date: new Date('2020-05-10T04:00:00Z')
+    },
+    {
+      id: 2,
+      pageType: 'Event',
+      type: 'Agenda',
+      title: 'Corona: verbonden door verhalen',
+      subTitle: '10:00 uur tot 11 uur',
+      imageUrls: Image('Block'),
+      linkUrl: '/agenda/voorspeelavond-klassiek-piano',
+      startDate: new Date('2018-05-18T10:00:00Z'),
+      endDate: new Date('2018-05-20T11:00:00Z')
+    },
+    {
+      id: 3,
+      pageType: 'Education',
+      title: 'Audiovisual Media',
+      type: 'Bachelor',
+      school: 'HKU Media',
+      linkUrl: '/opleiding',
+      imageUrls: Image('Block')
+    },
+    {
+      id: 4,
+      pageType: 'PageContent',
+      title: 'Creatieve maakprocessen en Multidisciplinariteit',
+      type: 'Onderzoeksgebied',
+      imageUrls: Image('Block'),
+      linkUrl: '/content'
+    },
+    {
+      id: 5,
+      pageType: 'Contact',
+      imageUrls: Image('Block'),
+      linkUrl: '/contact',
+      linkText: 'Meer informatie',
+      title: 'Pastoe fabriek',
+      labels: ['030 20 91 409', 'Rostoord 3', '3523CL Utrecht']
+    },
+    {
+      id: 6,
+      pageType: 'Expositie',
+      title: 'Drowning',
+      subTitle: 'Suzanne van Capelle',
+      type: 'Expositie',
+      imageUrls: Image('Block'),
+      linkUrl: '/content'
+    }
+  ]
+};
+
+export default data;

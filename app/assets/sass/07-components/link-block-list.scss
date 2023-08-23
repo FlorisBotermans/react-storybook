@@ -1,0 +1,22 @@
+.link-block-list {
+  @extend .list--reset;
+  position: relative;
+  z-index: 1;
+  @include respond-to(desktop, small) {
+    display: flex;
+    height: 100vh;
+  }
+  &__item {
+    height: 50vh;
+    @include respond-to(desktop, small) {
+      height: 100%;
+      flex: 1 0 65%;
+    }
+    @include respond-to(desktop, large) {
+      flex: 1 0 45%;
+    }
+  }
+  &__item-link {
+    height: 100%;
+  }
+}

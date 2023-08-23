@@ -1,0 +1,12 @@
+@mixin background-gradient-base($color, $angle: 0deg) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, $color 0%, transparentize($color, 1) 100%);
+  }
+}

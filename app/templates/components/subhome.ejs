@@ -1,0 +1,63 @@
+<%- Html.React("Components.SubHomeSection", {
+  title: 'Studeren aan HKU',
+  intro: '<p>HKU onderscheidt zich met hoger onderwijs in de kunsten en de media en is een drijvende kracht in opleidingen en innovatie voor de creatieve industrie.</p>',
+  navTitle: 'Schools',
+  navBlocks: [
+    {
+      linkTitle: 'Alle opleidingen',
+      subTitle: 'Masters & Cursussen',
+      linkUrl: '/content',
+      imageUrls: Image('Exposition', 0),
+    },
+    {
+      linkTitle: 'Studeren in Utrecht',
+      subTitle: 'Alles wat je wilt weten over utrecht',
+      linkUrl: '/content',
+      imageUrls: Image('Exposition', 1),
+    },
+    {
+      linkTitle: 'Derde item met externe link',
+      subTitle: 'Subtitel van item',
+      linkUrl: 'https://www.google.com/',
+      imageUrls: Image('Exposition', 2),
+    },
+  ],
+  navLinks: withNavLinks ? [
+    {
+      linkText: 'Design',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Media',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Theater',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Beeldende kunst',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Games en interactie',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Kunst & economie',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Muziek & technologie',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'Conservatorium',
+      linkUrl: '/content'
+    },
+    {
+      linkText: 'HKU College',
+      linkUrl: '/content'
+    },
+  ] : [],
+}) %>

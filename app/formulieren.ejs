@@ -1,0 +1,16 @@
+<%- include('/page/header', { 
+  page: 'Formulieren',
+  showHeader: true
+}) %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Pagina titel',
+    title: 'Formulieren',
+    renderHeadline: false,
+  }
+}) %>
+
+<%- include('/components/form') %>
+
+<%- include('/page/footer') %>

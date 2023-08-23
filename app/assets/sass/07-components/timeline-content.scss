@@ -1,0 +1,27 @@
+.timeline-content {
+  &__container {
+    @include respond-to('tablet', 'portrait') {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  &__slide {
+    background: $color-white;
+    padding: 2.5rem 2.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include respond-to('tablet', 'portrait') {
+      padding: 8rem;
+      height: 100%;
+    }
+    h2,
+    h3,
+    h4 {
+      margin-top: 0;
+    }
+  }
+}

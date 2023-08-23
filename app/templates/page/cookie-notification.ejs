@@ -1,0 +1,19 @@
+<%- Html.React("Components.CookieNotification", {
+  title: "Cookie instellingen",
+  explanation: `
+    <p>
+      Om je beter en persoonlijker te helpen, gebruiken wij cookies en vergelijkbare technieken. 
+      Dit doen we zodat je zonder problemen onze website kunt gebruiken. 
+      Ook kunnen we zo zien hoe bezoekers onze site gebruiken en passen we daarna de site aan voor een nog betere ervaring.
+      Daar hebben we wel eerst je toestemming voor nodig.
+      Lees onze <a class="link link--white" href="/nl-nl/pagina-s/cookie-statement">cookiestatement</a> voor meer informatie.
+    </p>
+  `,
+  acceptText: "Toestaan",
+  rejectText: "Weigeren",
+  levels: {
+    neutral: 0,
+    accepted: 1000,
+    rejected: -1000
+  }
+}) %>

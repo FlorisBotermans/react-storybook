@@ -1,0 +1,15 @@
+// npm package: smooth-scrollbar
+[data-scrollbar] {
+  .scroll-content {
+    height: 100%;
+  }
+
+  .scrollbar-track {
+    background: none;
+  }
+
+  .scrollbar-thumb {
+    border-radius: 0;
+    background: rgba($color-accent1-tint2, .25);
+  }
+}

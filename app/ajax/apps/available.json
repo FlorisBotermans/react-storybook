@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "icon": "/assets/img/content/outlook.svg",
+    "title": "Webmail",
+    "url": "https://mail.office365.com/",
+    "description": "Webmail is een Office365 applicatie",
+    "categories" : ["Communicatie"]
+  },
+  {
+    "id": 2,
+    "icon": "/assets/img/content/basecamp.svg",
+    "title": "Basecamp",
+    "url": "https://www.basecamp.com",
+    "description": "Basecamp is een project management applicatie",
+    "categories" : ["Productiviteit"],
+    "supportLink": "https://basecamp.com/support",
+    "supportLinkText": "Supportpagina"
+  },
+  {
+    "id": 3,
+    "icon": "/assets/img/content/canvas.svg",
+    "title": "Canvas",
+    "url": "https://portfolium.com.au/login",
+    "description": "Canvas is een Learning Management System: een open, online leeromgeving voor docenten en studenten.",
+    "categories" : ["Studievoortgang"],
+    "supportLink": "https://www.instructure.com/en-au/canvas/support-faq",
+    "supportLinkText": "Supportpagina"
+  },
+  {
+    "id": 4,
+    "icon": "/assets/img/content/eduvpn.svg",
+    "title": "EduVPN",
+    "url": "https://www.eduvpn.org/client-apps/",
+    "description": "EduVPN is een VPN software waarmee je kunt inloggen op het beveiligde HKU netwerk",
+    "categories" : ["Communicatie"],
+    "supportLink": "https://www.eduvpn.org/contact/",
+    "supportLinkText": "Supportpagina"
+  }
+]

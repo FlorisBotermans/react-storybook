@@ -1,0 +1,38 @@
+.block-grid {
+  @include clearfix-top();
+  @include clearfix-bottom();
+
+  &--theme-primary {
+    background-color: $color-grey;
+  }
+
+  &--theme-secondary {
+    background-color: $color-accent1-tint3;
+  }
+
+  &__items {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  }
+
+  &__link {
+    margin: 5rem auto;
+    font-size: inherit;
+
+    @include respond-to('tablet', 'portrait') {
+      margin: 10rem auto 0;
+    }
+
+    .block-grid--theme-secondary & {
+      color: $color-accent2-tint1;
+      fill: $color-accent2-tint1;
+
+      &:hover,
+      &:active,
+      &:focus-visible {
+        color: $color-white;
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.scroll-button {
+  display: none;
+  width: 6.6rem;
+  height: 6.6rem;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: 0;
+  border-radius: 0;
+  cursor: pointer;
+  @include respond-to('tablet', 'portrait') {
+    display: block;
+  }
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 6.6rem 6.6rem;
+    border-color: transparent transparent $color-accent1-tint3;
+  }
+
+  &--pos-one-third {
+    left: 33.33%;
+    right: auto;
+    &::before {
+      border-width: 6.6rem 0 0 6.6rem;
+      border-color: transparent transparent transparent $color-accent1-tint3;
+    }
+  }
+  
+  &__icon {
+    position: absolute;
+    top: 2.7rem;
+    left: 2rem;
+    display: block;
+    z-index: 1;
+    transition: opacity .25s;
+    
+    .scroll-button--direction-left & {
+      transform: scaleX(-1);
+    }
+
+    .scroll-button[disabled] & {
+      opacity: 0;
+    }
+  }
+}

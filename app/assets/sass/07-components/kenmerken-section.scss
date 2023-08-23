@@ -1,0 +1,33 @@
+.kenmerken-section {
+  @extend .container;
+  @extend .container--center;
+  margin-bottom: 1.6rem;
+  overflow: hidden;
+  background-color: $color-white;
+  @include respond-to('tablet', 'portrait') {
+    margin-bottom: 2.5rem;
+  }
+  &__container {
+    position: relative;
+    font-size: 1.4rem;
+    margin: 0 0 -.2rem;
+    @include respond-to('tablet', 'portrait') {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-size: 1.6rem;
+    }
+    @include respond-to('desktop', 'small') {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+}
+.kenmerk-item {
+  display: flex;
+  border-bottom: 0.2rem solid $color-grey;
+  padding: 0.5rem 2rem 0.5rem 0;
+  line-height: 1.5;
+  &__text {
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+}

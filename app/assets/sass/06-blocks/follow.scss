@@ -1,0 +1,64 @@
+.follow {
+  &__btn {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: .1rem solid $color-white;
+    border-radius: .4rem;
+    padding: 0;
+    background: $color-accent1-tint2;
+    fill: $color-white;
+    cursor: pointer;
+    transition: background-color .15s, fill .15s, color .15s;
+
+    .follow--following & {
+      background: $color-highlight;
+    }
+
+    .follow--error & {
+      background: $color-danger;
+    }
+
+    &:hover,
+    &:focus {
+      background: $color-accent1-tint3;
+
+      .follow--following & {
+        background: mix($color-black, $color-highlight, 50);
+      }
+    }
+
+    &:disabled {
+      background: $color-accent1-tint2;
+      cursor: default;
+    }
+  }
+
+  &__updating {
+    @keyframes updating {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    width: 1.3rem;
+    height: 1.3rem;
+    animation: updating 1s steps(8, end) infinite;
+  }
+
+  &__icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  &__error {
+    position: absolute;
+    color: $color-danger;
+  }
+}

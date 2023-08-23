@@ -1,0 +1,24 @@
+@mixin link() {
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: $color-accent2-tint1;
+  transition: color .15s;
+  .theme-dark & {
+    color: inherit;
+    &:hover,
+    &:active,
+    &:focus-visible {
+      color: $color-accent2-tint1;
+    }
+  }
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: $color-accent2-tint3;
+  }
+}
+
+a:not([class]) {
+  @include link();
+}

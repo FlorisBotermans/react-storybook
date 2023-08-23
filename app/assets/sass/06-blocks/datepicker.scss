@@ -1,0 +1,329 @@
+.react-datepicker {
+  position: relative;
+  display: block;
+  font-weight: normal;
+  background-color: $color-white;
+  color: $color-black;
+  margin: 0 -1px;
+  border-radius: 0.3rem;
+  border: 0.1rem solid $color-accent1-tint1;
+
+  &--time-only {
+    font-size: 16px;
+    line-height: 18px;
+
+    & .react-datepicker__time-container {
+      border-left: 0;
+    }
+  }
+
+  &__triangle {
+    display: none;
+  }
+
+  &-popper {
+    z-index: 1;
+    margin-top: 7rem;
+    user-select: none; //// Override the position shifting
+    transform: none !important; //sass-lint:disable-line no-important
+    position: absolute;
+
+    max-width: 38.7rem;
+    width: 100%;
+  }
+
+  &__header {
+    text-align: center;
+    position: relative;
+  }
+
+  &__header--time {
+    display: none;
+  }
+
+  &__year-dropdown-container--select,
+  &__month-dropdown-container--select,
+  &__month-year-dropdown-container--select,
+  &__year-dropdown-container--scroll,
+  &__month-dropdown-container--scroll,
+  &__month-year-dropdown-container--scroll {
+    display: inline-block;
+    margin: 0 2px;
+  }
+
+  &__current-month,
+  &-time__header {
+    color: $color-accent1-tint1;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 0;
+    padding: 1.5rem 0;
+  }
+
+  &-time__header {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__navigation {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 2px;
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    border: 0;
+    background: none;
+    line-height: 35px;
+    text-indent: -9999px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  &__navigation--next::before,
+  &__navigation--previous::before {
+    position: absolute;
+    top: 12px;
+    margin: 0 20px;
+    width: 15px;
+    height: 12px;
+    display: block;
+    text-indent: 0;
+    opacity: 0.3;
+    content: url('data:image/svg+xml;charset=UTF-8, %3Csvg%20fill%3D%22%23211D67%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20d%3D%22M13.384%206l-.65.75L8.17%2012l-1.72-1.498%202.926-3.36H0V4.858h9.375l-2.926-3.36L8.17%200l4.566%205.25z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E'); //sass-lint:disable-line max-line-length
+  }
+  &__navigation--next:hover::before {
+    opacity: 1;
+    content: url('data:image/svg+xml;charset=UTF-8, %3Csvg%20fill%3D%22%23211D67%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2215%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20d%3D%22M13.384%206l-.65.75L8.17%2012l-1.72-1.498%202.926-3.36H0V4.858h9.375l-2.926-3.36L8.17%200l4.566%205.25z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E'); //sass-lint:disable-line max-line-length
+  }
+
+  &__navigation--previous::before {
+    opacity: 0.3;
+    content: url('data:image/svg+xml;charset=UTF-8, %3Csvg%20fill%3D%22%23211D67%22%20width%3D%2214px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22translate(-46.000000%2C%20-267.000000)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpolygon%20transform%3D%22translate(52.692047%2C%20273.000000)%20scale(-1%2C%201)%20rotate(270.000000)%20translate(-52.692047%2C%20-273.000000)%20%22%20points%3D%2252.6920459%20279.692047%2053.4411462%20279.04283%2058.692047%20274.47683%2057.1938509%20272.757433%2053.8335483%20275.682528%2053.8335483%20266.307953%2051.5505457%20266.307953%2051.5505457%20275.682528%2048.1902432%20272.757433%2046.692047%20274.47683%2051.9429478%20279.04283%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E'); //sass-lint:disable-line max-line-length
+  }
+
+  &__navigation--previous:hover::before {
+    opacity: 1;
+    content: url('data:image/svg+xml;charset=UTF-8, %3Csvg%20fill%3D%22%23211D67%22%20width%3D%2214px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22translate(-46.000000%2C%20-267.000000)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpolygon%20transform%3D%22translate(52.692047%2C%20273.000000)%20scale(-1%2C%201)%20rotate(270.000000)%20translate(-52.692047%2C%20-273.000000)%20%22%20points%3D%2252.6920459%20279.692047%2053.4411462%20279.04283%2058.692047%20274.47683%2057.1938509%20272.757433%2053.8335483%20275.682528%2053.8335483%20266.307953%2051.5505457%20266.307953%2051.5505457%20275.682528%2048.1902432%20272.757433%2046.692047%20274.47683%2051.9429478%20279.04283%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E'); //sass-lint:disable-line max-line-length
+  }
+
+  &__navigation:focus {
+    outline: none;
+  }
+
+  &__navigation--previous {
+    left: 0;
+  }
+
+  &__navigation--next {
+    right: 0;
+  }
+
+  &__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {
+    right: 80px;
+  }
+
+  &__navigation--years {
+    position: relative;
+    top: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &__month {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  &__time-container {
+    float: right;
+    width: 70px;
+  }
+
+  &__time-container--with-today-button {
+    display: inline;
+    position: absolute;
+    right: -72px;
+    top: 0;
+  }
+
+  &__time {
+    position: relative;
+  }
+
+  &__time-box {
+    width: 70px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__time-list {
+    list-style: none;
+    margin: 0;
+    height: 180px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
+    padding: 0 30px 0 0;
+    width: calc(100% + 30px);
+  }
+
+  &__time-list-item {
+    scroll-snap-align: start;
+    width: 70px;
+    display: table;
+    line-height: 30px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba($color-accent1-tint1, 0.25);
+    }
+
+    &--selected {
+      &,
+      &:hover {
+        background-color: rgba($color-accent1-tint1, 0.25);
+      }
+    }
+
+    &--disabled {
+      cursor: default;
+      background-color: $color-accent1-tint2;
+      &,
+      &:hover {
+        color: $color-black;
+      }
+    }
+  }
+
+  &__day-names {
+    border-top: 1px solid $color-accent1-tint2;
+    border-bottom: 1px solid $color-accent1-tint2;
+    opacity: 0.3;
+  }
+  &__day-names,
+  &__week {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__day-name,
+  &__day,
+  &__time-name {
+    width: 3.7rem;
+    height: 3.7rem;
+    line-height: 4.2rem; // Fix inconsistency in vertical alignment font
+    border-radius: 50%;
+    margin: 0.5rem;
+    color: $color-accent1-tint2;
+    text-align: center;
+  }
+
+  &__week:last-child {
+    .react-datepicker__day,
+    .react-datepicker__time-name {
+      border-bottom: 0;
+    }
+  }
+
+  &__day {
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-accent1-tint1, 0.15);
+      color: inherit;
+    }
+
+    &--today {
+      color: $color-accent1-tint1;
+      font-weight: 700;
+    }
+
+    &--highlighted {
+      &,
+      &:hover {
+        background-color: rgba($color-accent1-tint1, 0.25);
+        color: inherit;
+      }
+    }
+
+    &--selected,
+    &--in-selecting-range,
+    &--in-range {
+      &,
+      &:hover {
+        color: $color-white;
+        background-color: $color-accent1-tint1;
+      }
+    }
+
+    &--keyboard-selected {
+      &,
+      &:hover {
+        color: $color-white;
+        background-color: $color-accent1-tint1;
+      }
+    }
+
+    &--disabled {
+      &,
+      &:hover {
+        cursor: default;
+        background-color: $color-accent1-tint2;
+        color: $color-grey;
+      }
+    }
+  }
+
+  &__input-container {
+    position: relative;
+    height: 48px;
+  }
+
+  &__input {
+    width: 100%;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    padding: 11px 30px 11px 0;
+    background: none;
+    color: inherit;
+    &::placeholder {
+      color: rgba($color-accent1-tint1, .6);
+      font-weight: 700;
+
+      .theme-dark & {
+        color: rgba($color-white, .4);
+      }
+    }
+  }
+
+  &__indicator {
+    // @extend .btn--reset;
+    @extend .btn;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    outline: 0;
+    padding: 0 1.4rem;
+    pointer-events: none;
+  }
+
+  &__indicator-icon {
+    width: 16px;
+    height: 13px;
+    fill: $color-accent1-tint1;
+  }
+
+  &__day--outside-month {
+    opacity: 0.4;
+  }
+}

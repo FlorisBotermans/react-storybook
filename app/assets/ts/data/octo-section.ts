@@ -1,0 +1,7 @@
+const data = {
+  vendorUrl: 'https://octo.hku.nl/octo/vendor/js/require.js',
+  scriptUrl: 'https://octo.hku.nl/octo/js/frontend.js',
+  html: '<div class="octoNode" data-project="HKU_vacatures" data-object="hku_vacatures" data-rendermodel="vacaturegrid"></div>'
+};
+
+export default data;

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "index": 1,
+    "title": "Pagina 1",
+    "url": "/content",
+    "icon": "favorite"
+  },
+  {
+    "id": 2,
+    "index": 0,
+    "title": "Pagina 2 met een langere titel om de overflow te testen",
+    "url": "/content-2",
+    "icon": "favorite"
+  }
+]

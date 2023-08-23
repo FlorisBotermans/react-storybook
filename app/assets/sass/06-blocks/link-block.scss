@@ -1,0 +1,46 @@
+$link-block-fade-tint1: #02001e; // sass-lint:disable-line no-color-hex
+$link-block-fade-tint2: transparentize(#02001e, 1); // sass-lint:disable-line no-color-hex no-color-literals
+
+.link-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 34.6rem;
+  padding: 2.5rem;
+  text-decoration: none;
+  overflow: hidden;
+  @include background-gradient-base($color-accent1-tint3);
+  @include respond-to('tablet', 'portrait') {
+    padding: 0 5% 7.6rem;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: transform 0.33s ease;
+    pointer-events: none;
+    .link-block:hover &,
+    .link-block:focus & {
+      transform: scale(1.1);
+    }
+  }
+  &__title,
+  &__subtitle {
+    position: relative;
+    z-index: 1;
+    color: $color-white;
+  }
+  &__title {
+    @extend .h3;
+    margin: 0;
+    font-weight: 700;
+  }
+  &__subtitle {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+  }
+}

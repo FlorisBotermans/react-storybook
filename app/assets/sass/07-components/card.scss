@@ -1,0 +1,47 @@
+.card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  &--has-image {
+    min-height: 17rem;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: $color-grey2;
+  }
+  
+  &__link {
+    @include button;
+    @include button--rounded;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 6.5rem;
+    border-radius: 0;
+    padding: 0 1rem 0 2rem;
+    fill: $color-accent2-tint1;
+
+    .card--has-image & {
+      margin: 1rem;
+    }
+  }
+
+  &__link-text {
+    @include line-clamp(2);
+    padding: .2rem 0 0;
+  }
+
+  &__link-icon {
+    flex-shrink: 0;
+    margin-left: 1.5rem;
+  }
+}

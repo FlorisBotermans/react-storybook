@@ -1,0 +1,96 @@
+.search {
+  &__form {
+    background: $color-white;
+
+    .search-section & {
+      border-radius: .3rem;
+    }
+  }
+
+  // &__form-container {
+  // }
+
+  .field {
+    margin-top: 0;
+  }
+  .field__input-container {
+    margin-top: 0;
+    min-height: 4.5rem;
+    border-radius: .4rem;
+    @include respond-to(tablet, portrait) {
+      border-color: transparent;
+    }
+
+    @at-root .search__form .focus-within .field__input-container {
+      box-shadow: none;
+    }
+
+    .search-section & {
+      border: .1rem solid $color-grey;
+    }
+  }
+
+  &__results {
+    min-height: 100vh;
+  }
+  &__results-total {
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    animation: search-results-fade-in .5s both;
+  }
+  &__results-loading {
+    margin: 8rem auto;
+    display: block;
+    transform: scale(-2, 2);
+    fill: $color-grey;
+    animation: search-results-fade-in .5s both;
+
+    @for $i from 1 through 3 {
+      > path:nth-child(#{$i}) {
+        animation: search-results-loading-#{$i} 2s infinite;
+      }
+    }
+  }
+  &__results-error {
+    margin-top: 3.1rem;
+    margin-bottom: 3.1rem;
+    color: $color-accent2-tint1;
+    @include respond-to('tablet', 'portrait') {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+  }
+  &__results-list {
+    @include list--reset();
+    animation: search-results-fade-in .5s both;
+  }
+}
+
+@for $i from 1 through 3 {
+  @keyframes search-results-loading-#{$i} {
+    0% {
+      fill: $color-grey;
+    }
+    #{($i - 1) * calc(75% / 3)} {
+      fill: $color-grey;
+    }
+    75% {
+      fill: $color-accent2-tint1;
+    }
+    100% {
+      fill: $color-grey;
+    }
+  }
+}
+
+@keyframes search-results-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

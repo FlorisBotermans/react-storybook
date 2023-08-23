@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="row__column row__column--2">
+    <%- locals.columns[0] %>
+  </div>
+  <div class="row__column">
+    <%- locals.columns[1] %>
+  </div>
+  <% if(locals.columns.length > 2) { %>
+  <div class="row__column">
+    <%- locals.columns[2] %>
+  </div>
+  <% } %>
+</div>

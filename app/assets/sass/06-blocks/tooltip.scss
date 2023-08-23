@@ -1,0 +1,53 @@
+@import 'tippy.js/dist/tippy';
+
+.tooltip {
+  &__btn {
+    appearance: none;
+    display: inline-block;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: none;
+    text-align: inherit;
+    cursor: pointer;
+    pointer-events: all;
+    color: inherit;
+    fill: inherit;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0 1rem;
+
+    @include respond-to(tablet, portrait) {
+      margin: 0 2rem;
+    }
+  }
+
+  &__overlay {
+    pointer-events: all;
+
+    .tippy-box {
+      background: none;
+      border-radius: none;
+    }
+
+    .tippy-content {
+      z-index: 1;
+      background: $color-white;
+      color: $color-accent1-tint1;
+      fill: $color-accent1-tint1;
+      font-size: 1.6rem;
+      padding: .5rem 1rem;
+      border-radius: .3rem;
+      box-shadow: rgba($color-black, .5) 0 .1rem .5rem;
+    }
+    
+    .tippy-arrow {
+      color: $color-white;
+      z-index: 2;
+    }
+  }
+}

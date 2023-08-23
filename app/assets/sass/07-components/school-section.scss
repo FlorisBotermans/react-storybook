@@ -1,0 +1,27 @@
+.school-section {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: $color-accent1-tint3;
+
+  &__navigation {
+    padding-top: 6.6rem;
+    @include respond-to('tablet', 'portrait') {
+      padding-top: 0;
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+  }
+
+  &__content {
+    flex-shrink: 0;
+    width: 100%;
+    margin-right: -100%;
+
+    @include respond-to('tablet', 'portrait') {
+      padding-left: 33.333%;
+    }
+  }
+}

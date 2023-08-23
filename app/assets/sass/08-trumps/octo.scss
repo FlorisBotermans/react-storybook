@@ -1,0 +1,144 @@
+// sass-lint:disable-all (and we need this...)
+
+.octo-template-section {
+  background: $color-white;
+  &__content {
+    @include respond-to('tablet', 'portrait') {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &__content-left {
+    @include respond-to('tablet', 'portrait') {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 33.3%;
+    }
+  }
+  &__content-right {
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    @include respond-to('tablet', 'portrait') {
+      flex: 1;
+      margin-left: 2.5rem;
+    }
+  }  
+}
+
+.octoCss {
+  position: relative;
+  background: $color-white;
+  .container {
+    @include clearfix-top();
+    @include clearfix-bottom();
+  }
+}
+
+.octo-section,
+.octo-template-section {
+  .header {
+    position: static;
+    margin-bottom: 20px;
+  }
+  .myFilter {
+    vertical-align: bottom;
+    margin-bottom: 0;
+    font-size: inherit;
+  }
+  .octoPager {
+    margin-top: 30px;
+  }
+  .facet-tags {
+    li::before {
+      content: none;
+    }
+  }
+}
+
+// Generic overrides
+.octoCss {
+  a {
+    @extend .link;
+  }
+}
+
+// Forms overrides
+.octoCss {
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input,
+  textarea,
+  select {
+    padding: 8px 20px !important;
+    background: $color-white !important;
+    border: 1px solid $color-accent1-tint1 !important;
+    border-radius: 3px !important;
+    font-family: inherit !important;
+  }
+  input[type='text'],
+  select,
+  textarea,
+  .uploadFileDroptarget {
+    min-height: 48px;
+  }
+  .saveButton,
+  .uploadFileButton {
+    font-size: inherit !important;
+    background-color: $color-accent1-tint1 !important;
+    color: $color-white !important;
+    border-radius: 3px !important;
+    border: none !important;
+    min-height: 48px;
+    padding: 0 20px !important;
+    box-shadow: none !important;
+  }
+  .delObject {
+    margin-left: 10px;
+  }
+  .uploadFileDroptarget {
+    margin-left: 24px;
+    line-height: 49px;
+  }
+  .octoPagerPageNumber {
+    padding: 3px !important;
+    min-height: auto !important;
+  }
+}
+
+// Date picker overrides
+.ui-widget-header {
+  background: $color-grey !important;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background: $color-white !important;
+  border-radius: 100%;
+  padding: 0;
+  width: 37px;
+  height: 37px;
+  line-height: 37px;
+  text-align: center;
+  border-color: transparent !important;
+}
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  color: $color-black !important;
+  border-color: $color-grey !important;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  background: $color-accent1-tint1 !important;
+  color: $color-white !important;
+  border-color: transparent !important;
+  opacity: 1;
+}
+.ui-state-hover {
+  border-color: $color-accent1-tint3 !important;
+  color: $color-accent1-tint3 !important;
+}

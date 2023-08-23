@@ -1,0 +1,451 @@
+@mixin scroll-hints {
+  $height: 1.5rem;
+
+  &::before,
+  &::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: $height;
+    opacity: 0;
+    transition: opacity .15s;
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape) {
+        width: calc(100% - 7rem);
+      }
+    }
+  }
+  &::before {
+    background: linear-gradient(to bottom, rgba($color-black, .05), rgba($color-black, 0));
+  }
+  &::after {
+    margin-top: -$height;
+    background: linear-gradient(to bottom, rgba($color-black, 0), rgba($color-black, .1));
+  }
+  &--top-hint::before,
+  &--bottom-hint::after {
+    opacity: 1;
+  }
+}
+
+.navigation {
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  transition: transform .5s;
+
+  $bottom-navigation-height: 7.2rem;
+  $header-height: 6.5rem;
+  $margin-left: 4.5rem;
+  $margin-right: 3rem;
+
+  @include respond-to(tablet, landscape) {
+    margin-left: -27rem;
+  }
+
+  .body--navigation-sticky & {
+    @include respond-to(tablet, landscape) {
+      transform: translateX(27rem);
+    }
+  }
+
+  @mixin corner {
+    content: '';
+    display: block;
+    height: $header-height;
+    width: $header-height;
+    transform: skewY(-0.125turn);
+    transform-origin: 0 0;
+    background: $color-white;
+  }
+
+  &__logo {
+    width: 27rem;
+    height: $header-height;
+    background: $color-white;
+    pointer-events: all;
+    box-shadow: rgba($color-accent1-tint2, .1) 2.25rem -2.25rem 4rem 3.25rem;
+
+    @include respond-to(tablet, landscape, max) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    @include respond-to(tablet, landscape) {
+      box-shadow: rgba($color-accent1-tint2, .15) 6.5rem 0 4rem;
+    }
+    
+    &::before {
+      @include respond-to(tablet, landscape, max) {
+        @include corner();
+        position: absolute;
+        right: -$header-height;
+      }
+    }
+  }
+
+  &__logo-background-container {
+    position: relative;
+    z-index: 2;
+    height: $header-height;
+    padding: 1.7rem $margin-right 0 $margin-left;
+    background: $color-white;
+  }
+
+  &__logo-link {
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+  }
+
+  &__logo-image {
+    width: auto;
+    height: 1.8rem;
+  }
+
+  &__logo-text {
+    font-size: 1.6rem;
+    line-height: 3rem;
+
+    @include theme-colors(false) {
+      color: $theme-color;
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 0;
+    margin-left: 27rem;
+    width: 0;
+    height: $header-height;
+    background: $color-white;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    @include respond-to(tablet, landscape, max) {
+      display: none;
+    }
+
+    &::before {
+      @include corner();
+    }
+  }
+
+  &__toggle-icon {
+    position: absolute;
+    display: block;
+    top: 1.2rem;
+    margin-left: .4rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    @include theme-colors(false) {
+      fill: $theme-color;
+    }
+  }
+
+  &__container {
+    height: 100%;
+    width: 100%;
+    background: $color-white;
+    pointer-events: all;
+    visibility: hidden;
+    transition: transform .5s, visibility .5s, box-shadow .5s;
+
+    @include respond-to(tablet, landscape, max) {
+      position: fixed;
+      z-index: 102;
+      top: calc(100vh - $bottom-navigation-height);
+      height: calc(100vh - $bottom-navigation-height);
+    }
+    @include respond-to(tablet, landscape) {
+      width: 27rem;
+      box-shadow: rgba($color-accent1-tint2, 0) 0 0 0;
+    }
+    
+    .body--navigation-visible & {
+      visibility: visible;
+      @include respond-to(tablet, landscape, max) {
+        transform: translateY(-100%);
+      }
+    }
+
+    .body--navigation-sticky & {
+      visibility: visible;
+      @include respond-to(tablet, landscape) {
+        box-shadow: rgba($color-accent1-tint2, .1) 0 0 4rem;
+      }
+    }
+  }
+
+  // Hides toggle shadow
+  &__background-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    @include respond-to(tablet, landscape) {
+      height: calc(100% - $header-height);
+    }
+  }
+
+  &__content {
+    @include scroll-hints;
+    height: 100%;
+  }
+
+  &__scroller {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-anchor: none;
+    @include scrollbar-hide;
+    @include respond-to(tablet, landscape, max) {
+      padding-bottom: 5rem;
+    }
+
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape) {
+        max-height: calc(100vh - $header-height);
+      }
+    }
+  }
+
+  &__scroll-top-detection {
+    width: 100%;
+    height: .1rem;
+    margin-bottom: -.1rem;
+  }
+
+  &__scroll-bottom-detection {
+    width: 100%;
+    height: .1rem;
+    margin-top: -.1rem;
+  }
+
+  &__header {
+    margin: 1rem $margin-right .2rem $margin-left;
+    color: $color-accent1-tint2;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__separator {
+    margin: 0 $margin-right 0 $margin-left;
+    border: 0;
+    border-bottom: .1rem solid $color-grey;
+
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape) {
+        margin: 0 2rem;
+      }
+    }
+  }
+
+  &__close-btn {
+    @include button;
+    position: absolute;
+    top: calc($margin-right - .5rem);
+    right: calc($margin-right - .5rem);
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    @include theme-colors(false) {
+      fill: $theme-color;
+    }
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      @include theme-colors(false) {
+        fill: mix($color-black, $theme-color, 25);
+      }
+    }
+
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape, max) {
+        display: flex;
+      }
+    }
+  }
+
+  &__section {
+    transition: opacity .15s, visibility .15s;
+    opacity: 0;
+    visibility: hidden;
+
+    &:not(.navigation__section--focused) {
+      pointer-events: none;
+
+      .navigation__list-link:focus + & {
+        .body--navigation-visible & {
+          @include respond-to(tablet, landscape, max) {
+            transform: translateX(100%);
+            visibility: visible;
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    &:focus-within, // Make element focusable when navigating with the keyboard
+    &--focused {
+      @mixin visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      .body--navigation-visible & {
+        @include visible;
+      }
+      @include respond-to(tablet, landscape) {
+        @include visible;
+      }
+    }
+
+    // Sublist position
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape, max) {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 7.5rem;
+        background-color: $color-white;
+      }
+      @include respond-to(tablet, landscape) {
+        position: absolute;
+        top: var(--top, 0);
+        right: -4.5rem;
+        margin-top: -6.2rem;
+        margin-right: -100%;
+        margin-bottom: -6.2rem;
+      }
+
+      .navigation__list-item & {
+        @include respond-to(tablet, landscape) {
+          right: 6rem;
+        }
+      }
+    }
+  }
+  
+  &__section-container {
+    color: $color-accent1-tint1;
+    fill: $color-accent1-tint1;
+
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape, max) {
+        height: 100%;
+      }
+
+      @include respond-to(tablet, landscape) {
+        margin: 5rem 5rem 20rem 2rem; // Extra boundary to prevent a lost of focus when hovering a bit out of the menu
+        width: 25.5rem;
+        background: $color-white;
+        border-radius: .7rem;
+        box-shadow: rgba($color-accent1-tint2, .1) 0 0 4rem;
+      }
+    }
+
+    @include scroll-hints;
+  }
+
+  &__list-container {
+    padding: 3rem 0;
+
+    .navigation__list-item & {
+      padding: 1rem 0;
+    }
+  }
+
+  &__list {
+    @include list--reset;
+  }
+
+  &__list-item {
+    padding: 0 $margin-right 0 $margin-left;
+    font-weight: 700;
+
+    .navigation__list-item & {
+      @include respond-to(tablet, landscape) {
+        padding: 0 2rem;
+      }
+    }
+  }
+
+  &__list-link {
+    @include link;
+    display: flex;
+    width: 100%;
+    padding: 0;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    fill: inherit;
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      @include theme-colors(false) {
+        color: $theme-color;
+        fill: $theme-color;
+      }
+    }
+  }
+
+  &__list-icon {
+    flex-shrink: 0;
+    align-self: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 1rem;
+    @include theme-colors(false) {
+      fill: $theme-color;
+    }
+  }
+
+  &__list-text {
+    width: 100%;
+    padding: 1.5rem 0 .9rem;
+    color: inherit;
+
+    .navigation__section & {
+      .navigation__list-item & {
+        padding: 1.3rem 0 .7rem;
+      }
+    }
+  }
+
+  &__list-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+  }
+
+  &__list-arrow-icon {
+    flex-shrink: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: inherit;
+    
+    &--external {
+      @include theme-colors(false) {
+        fill: $theme-color;
+      }
+    }
+  }
+}

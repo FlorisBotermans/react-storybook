@@ -1,0 +1,73 @@
+.breadcrumb {
+  display: flex;
+  color: $color-accent1-tint2;
+  &--ellipsis {
+    height: 3rem;
+    overflow: hidden;
+  }
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    .breadcrumb--ellipsis & {
+      flex-direction: row-reverse;
+    }
+  }
+  &__item {
+    flex-shrink: 0;
+    position: relative;
+    max-width: calc(100% - 1.7rem); // substract the padding
+    margin-left: 2.5rem;
+    margin-right: -2.5rem;
+    padding: 0 .5rem 0 1.2rem;
+    background: $color-white;
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+    }
+    &:not(:first-child)::before {
+      content: '>';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &:not(:first-child)::after {
+      .breadcrumb--ellipsis & {
+        content: '...';
+        position: absolute;
+        top: 0;
+        left: -2.5rem;
+      }
+    }
+    $count: 20; //Works for up to 20 breadcrumb items
+    @for $i from 1 through $count {
+      &:nth-child(#{$i}) {
+        .breadcrumb--ellipsis & {
+          order: #{$count - $i};
+          z-index: #{$count - $i}; //Hide the ellipsis
+        }
+      }
+    }
+  }
+  &__item-link {
+    display: block;
+    color: $color-accent1-tint2;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &:focus,
+    &:hover {
+      color: $color-accent2-tint1;
+    }
+  }
+}

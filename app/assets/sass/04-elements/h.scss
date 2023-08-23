@@ -1,0 +1,117 @@
+@mixin h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+  margin: 1rem 0;
+}
+
+@mixin h1-desktop {
+  font-size: 5rem;
+  line-height: 5rem;
+  margin: 0 0 4.5rem;
+}
+
+@mixin h2 {
+  font-size: 3rem;
+  line-height: 4rem;
+  margin: 0 0 2rem;
+}
+
+@mixin h2-desktop {
+  font-size: 2.5rem;
+  line-height: 4rem;
+  margin: 0 0 2rem;
+}
+
+@mixin h3 {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  margin: 3rem 0 2rem;
+}
+
+@mixin h3-desktop {
+  font-size: 2rem;
+  line-height: 3.5rem;
+  margin: 3rem 0 2rem;
+}
+
+@mixin h4 {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin: 3rem 0 2rem;
+}
+
+@mixin h4-desktop {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  margin: 3rem 0 2rem;
+}
+
+@mixin h5 {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  margin: 3rem 0 2rem;
+}
+
+@mixin h5-desktop {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin: 3rem 0 2rem;
+}
+
+h1:not([class]),
+.h1 {
+  @include h1;
+  @include respond-to('tablet', 'portrait') {
+    @include h1-desktop;
+  }
+}
+
+h2:not([class]),
+.h2 {
+  @include h2;
+  @include respond-to('desktop', 'small') {
+    @include h2-desktop;
+  }
+}
+
+h3:not([class]),
+.h3 {
+  @include h3;
+  @include respond-to('desktop', 'small') {
+    @include h3-desktop;
+  }
+}
+
+h4:not([class]),
+.h4 {
+  @include h4;
+  @include respond-to('desktop', 'small') {
+    @include h4-desktop;
+  }
+}
+
+h5:not([class]),
+.h5 {
+  @include h5;
+  @include respond-to('desktop', 'small') {
+    @include h5-desktop;
+  }
+}
+
+h1:not([class]),
+h2:not([class]),
+h3:not([class]),
+h4:not([class]),
+h5:not([class]),
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  color: $color-accent1-tint1;
+  font-weight: 700;
+  
+  .theme-dark & {
+    color: $color-white;
+  }
+}

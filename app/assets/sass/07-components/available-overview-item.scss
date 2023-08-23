@@ -1,0 +1,78 @@
+.available-overview-item {
+  color: $color-accent1-tint1;
+  margin: 0 2.5rem;
+  box-shadow: rgba($color-black, .1) 0 .2rem 3rem 1rem;
+
+  @include respond-to(tablet, portrait) {
+    margin: 0 4rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: .5rem;
+    @include respond-to(tablet, portrait) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to top, mix($color-white, $color-grey, 33) 0, $color-white 2rem);
+    padding: .5rem .75rem;
+
+    @include respond-to(tablet, portrait) {
+      padding: 1rem;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+    object-fit: contain;
+    @include respond-to(tablet, portrait) {
+      width: 2.5rem;
+      margin-right: 2rem;
+      margin-top: .2rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__info {
+    flex-grow: 1;
+    margin-right: 2rem;
+  }
+
+  &__add-btn {
+    flex-shrink: 0;
+    @include button;
+    @include button--rounded;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-bottom: 0;
+    padding: .5rem .8rem;
+    @include respond-to(tablet, landscape) {
+      padding: .5rem 2rem;
+    }
+  }
+
+  &__add-text {
+    margin: .3rem 2rem 0 1.5rem;
+    @include respond-to(tablet, landscape, max) {
+      display: none;
+    }
+  }
+
+  &__add-icon {
+    width: 2rem;
+  }
+
+}

@@ -1,0 +1,88 @@
+<%- include('/page/header', { 
+  page: 'Content',
+  showHeader: true
+}) %>
+
+<%- include('/components/header') %>
+
+<%- include('/components/tabs') %>
+
+<%- include('/components/content') %>
+
+<%- include('/components/row', {
+  columns: [
+    include('/components/card'),
+    include('/components/card'),
+    include('/components/card')
+  ]
+}) %>
+<%- include('/components/row', {
+  columns: [
+    include('/components/card', { hasImage: true }),
+    include('/components/card', { hasImage: true }),
+    include('/components/card', { hasImage: true })
+  ]
+}) %>
+
+<%- include('/components/anchor-menu', {
+  anchors: ['H2 header 1', 'H2 header 3']
+}) %>
+
+<%- include('/components/content') %>
+<%- include('/components/row', {
+  columns: [
+    include('/components/content'),
+    [
+      include('/components/content'),
+      include('/components/media-section')
+    ].join('')
+  ]
+}) %>
+<%- include('/components/content') %>
+
+<%- include('/components/media-gallery-section') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Over HKU Media',
+    title: 'H2 header 1',
+    anchor: 'H2 header 1',
+    renderHeadline: false,
+  }
+}) %>
+<%- include('/components/content') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: '',
+    title: 'H2 header 2 zonder hashtag',
+    anchor: '',
+    renderHeadline: false,
+  }
+}) %>
+
+<%- include('/components/calendar') %>
+<%- include('/components/timeline') %>
+<%- include('/components/cta-button') %>
+
+<%- include('/components/expositions-section') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: '',
+    title: 'H2 header 3',
+    anchor: 'H2 header 3',
+    renderHeadline: false,
+  }
+}) %>
+<%- include('/components/media-section') %>
+
+<%- include('/components/accordion') %>
+
+<%- include('/components/block-grid') %>
+
+<%- include('/components/cta') %>
+
+<%- include('/components/timeline') %>
+
+<%- include('/page/footer') %>

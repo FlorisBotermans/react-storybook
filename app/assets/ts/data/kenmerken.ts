@@ -1,0 +1,17 @@
+const data = {
+  kenmerken: [
+    { label: 'Opleiding', text: 'Bachelor of Interaction Design' },
+    { label: 'Vorm', text: 'voltijd' },
+    { label: 'School', text: 'HKU Media' },
+    { label: 'Graad', text: 'Bachelor of Arts' },
+    { label: 'Duur', text: '48 maanden' },
+    { label: 'ECTS', text: '240' },
+    { label: 'Type', text: 'Bachelor' },
+    { label: 'Taal', text: 'Engels' },
+    { label: 'Croho-Code', text: '34257' },
+    { label: 'Locaties', text: '<a href="/content">Breda</a><br/><a href="/content">Tilburg</a>' },
+    { label: 'Contact', text: '<a href="mailto:contact@hku.nl">contact@hku.nl</a><br/><a href="tel:0612345678">06-12345678</a>' }
+  ]
+};
+
+export default data;

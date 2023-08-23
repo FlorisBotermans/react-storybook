@@ -1,0 +1,35 @@
+@mixin scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+@mixin scrollbar-thin($track-color, $thumb-color) {
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 1rem;
+    background: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    border: .2rem solid $track-color;
+    background: $thumb-color;
+  }
+}
+
+@mixin scrollbar-thin-horizontal($track-color, $thumb-color) {
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    height: 1rem;
+    background: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    border: .2rem solid $track-color;
+    background: $thumb-color;
+  }
+  
+}

@@ -1,0 +1,47 @@
+.accordion {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    outline: 0;
+    border: none;
+    margin: .5rem 0 0;
+    padding: .8rem 1.7rem .8rem 2rem;
+    background: $color-accent1-tint1;
+    text-align: left;
+    line-height: inherit;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $color-white;
+    cursor: pointer;
+    transition: background-color .15s, color .15s;
+
+    &:hover,
+    &:focus-visible,
+    &:active:not(:focus) {
+      color: rgba($color-white, .75);
+    }
+  }
+
+  &__content {
+    padding: 2rem;
+    background: $color-grey2;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 1.2rem;
+    margin-left: 1rem;
+    fill: $color-accent2-tint1;
+    transition: transform .25s, fill .25s;
+
+    .accordion--collapsed & {
+      transform: scaleY(-1);
+    }
+  }
+}

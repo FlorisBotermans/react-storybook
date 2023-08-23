@@ -1,0 +1,12 @@
+.actual-list {
+  @include scrollbar-hide();
+  background: $color-grey;
+  &__content {
+    @include respond-to('tablet', 'portrait') {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+    }
+  }
+}

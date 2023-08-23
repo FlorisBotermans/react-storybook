@@ -1,0 +1,18 @@
+@mixin list--reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  margin: 0 0 2.6rem;
+  padding-left: 1.7rem;
+  list-style: none;
+
+  &--reset {
+    @include list--reset;
+  }
+  &--no-margin {
+    margin: 0;
+  }
+}

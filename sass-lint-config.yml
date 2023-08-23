@@ -1,0 +1,94 @@
+rules:
+  attribute-quotes: [2, {include: true}]
+  bem-depth: 2
+  border-zero: 0
+  brace-style: [2, {style: 1tbs, allow-single-line: false}]
+  declarations-before-nesting: 2
+  empty-args: [0, {include: true}]
+  empty-line-between-blocks: [0, {allow-single-line-rulesets: false}]
+  extends-before-declarations: 2
+  extends-before-mixins: 2
+  force-element-nesting: 2
+  hex-length: [2, {style: short}]
+  hex-notation: [2, {style: lowercase}]
+  leading-zero: 0
+  indentation: [2, {size: 2}]
+  max-file-line-count: [2, {length: 600}]
+  max-line-length: [2, {length: 150}]
+  mixin-name-format: [2, {convention: hyphenatedlowercase}]
+  nesting-depth: [2, {max-depth: 3}]
+  no-color-keywords: 2
+  no-color-hex: 2
+  no-color-literals: [2, {
+    allow-map-identifiers: false, 
+    allow-rgba: true, 
+    allow-variable-identifiers: false
+  }]
+  no-css-comments: 2
+  no-debug: 2
+  no-duplicate-properties: 2
+  no-empty-rulesets: 2
+  no-ids: 2
+  no-important: 2
+  no-invalid-hex: 2
+  no-misspelled-properties: [2, {extra-properties: [scrollbar-width, overflow-scrolling] }]
+  no-trailing-whitespace: 0
+  no-trailing-zero: 2
+  no-vendor-prefixes: [2, {ignore-non-standard: true}] #TODO: ignore-non-standard is not working.
+  no-universal-selectors: 2
+  no-url-domains: 2
+  no-url-protocols: [2, {allow-protocol-relative-urls: false}]
+  no-warn: 2
+  one-declaration-per-line: 2
+  property-units: [2, {
+    global: ['rem', 'px', 'vw', 'vh'],
+    per-property: {
+      transition: ['s'], 
+      transition-delay: ['s'],
+      animation: [s], 
+      animation-delay: [s],
+      font-size: ['rem', 'px'], 
+      line-height: ['rem', 'px']
+    }
+  }]
+  pseudo-element: 2
+  quotes: [2, {style: single}]
+  shorthand-values: 2
+  single-line-per-selector: 2
+  space-after-bang: [2, {include: false}]
+  space-after-colon: [2, {include: true}]
+  space-after-comma: [2, {include: true}]
+  space-around-operator: [2, {include: true}]
+  space-before-bang: [2, {include: true}]
+  space-before-brace: [2, {include: true}]
+  space-before-colon: [2, {include: false}]
+  space-between-parens: [2, {include: false}]
+  trailing-semicolon: [2, {include: true}]
+  url-quotes: 2
+  variable-name-format: 2
+  zero-unit: [0, {include: false}] 
+
+  class-name-format: [2, {
+    allow-leading-underscore: false, 
+    convention: 'hyphenatedbem', # We use an unconventional format of BEM combined with PascalCase
+    convention-explanation: 'Class-name invalid. Should follow: block__element--modifier' 
+  }]
+
+  no-qualifying-elements: 0 # Prevents tag.class formats, but we allow have to allow this for now
+  function-name-format: 0 # Doesn't work, because it also checks css functions
+  no-transition-all: 0 #2 We have these now. Prevent in the future if possible
+  placeholder-in-extend: 0 # We don't always have these now. Force in the future if possible
+  placeholder-name-format: 0 # We should add formatting for placeholders in the future
+  property-sort-order: [0, {order: 'concentric', ignore-custom-properties: false }] # We should force an order in the future
+
+  final-newline: 0 # Last line not needed. Only for unix systems
+  id-name-format: 0 # We prevent ID's, so not needed
+  mixins-before-declarations: 0 # We allow all orders
+  no-combinators: 0 # We allow these
+  no-disallowed-properties: [0, {properties: []}] # We don't have disallowed properties at this time
+  no-extends: 0 # We use extends
+  no-mergeable-selectors: [0, {whitelist: ['.#{$module}']}] # We allow these
+  variable-for-property: [0, {properties: []}] # We don't need to specify this
+  force-attribute-nesting: 0
+  force-pseudo-nesting: 0
+  no-attribute-selectors: 0

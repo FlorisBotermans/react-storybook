@@ -1,0 +1,25 @@
+{
+  "allowJs": false,
+  "declaration": false,
+  "noEmitOnError": true,
+  "noImplicitAny": false,
+  "noLib": false,
+  "removeComments": false,
+  "sourceMap": true,
+  "traceResolution": true,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "typeRoots" : ["./node_modules/@types"],
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./app/assets/ts/**/*",
+    "./app/stories/*"
+  ]
+}

@@ -1,0 +1,218 @@
+.available-overview {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-black, .2);
+
+  @include respond-to(tablet, portrait) {
+    padding: 6rem 2rem 4rem;
+
+    @media (max-height: 480px) {
+      padding: 1rem;
+    }
+  }
+
+  &__overlay {
+    position: relative;
+    max-width: 94rem;
+    margin: 0 auto;
+    height: 100%;
+    background: $color-white;
+    box-shadow: rgba($color-black, .2) 0 0 4rem 2rem;
+    display: flex;
+
+    @include respond-to(tablet, portrait, max) {
+      min-height: 100vh;
+      flex-direction: column;
+    }
+  }
+
+  &__close-btn {
+    @include button;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    fill: $color-accent1-tint1;
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      fill: $color-accent2-tint1;
+    }
+  }
+
+  &__nav {
+    @include scrollbar-thin-horizontal($color-white, mix($color-white, $color-black, 50));
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    @include respond-to(tablet, portrait, max) {
+      margin-right: 6.5rem;
+    }
+
+    @include respond-to(tablet, portrait) {
+      @include scrollbar-thin($color-white, mix($color-white, $color-black, 50));
+      width: 24rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+
+  &__title {
+    @include h2-desktop;
+    margin: 2rem 4rem;
+
+    @include respond-to(tablet, portrait, max) {
+      display: none;
+    }
+  }
+
+  &__categories {
+    @include list--reset;
+    margin: 2rem 4rem 1rem 2.5rem;
+
+    @include respond-to(tablet, portrait, max) {
+      display: flex;
+    }
+  }
+
+  &__categories-divider {
+    height: .1rem;
+    margin: 2rem 0;
+    background: $color-grey2;
+
+    @include respond-to(tablet, portrait, max) {
+      display: none;
+    }
+  }
+
+  &__categories-item {
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+
+    @include respond-to(tablet, portrait, max) {
+      &:not(:first-child) {
+        margin-left: .5rem;
+      }
+    }
+  }
+
+  &__category {
+    @include button;
+    background: none;
+    padding: .5rem 2rem 0;
+    border-radius: .5rem;
+    color: $color-accent1-tint1;
+    font-size: 1.6rem;
+    white-space: nowrap;
+
+    &:hover,
+    &:active,
+    &:focus-visible,
+    &:disabled {
+      background: rgba($color-accent2-tint1, .05);
+      color: $color-accent2-tint1;
+    }
+  }
+
+  &__overview {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    @include respond-to(tablet, portrait) {
+      flex-grow: 1;
+      background: linear-gradient(to right, $color-grey2 0rem, mix($color-white, $color-grey, 75) 4rem); //sass-lint:disable-line no-duplicate-properties max-line-length
+    }
+  }
+
+  &__search {
+    flex-shrink: 0;
+    display: flex;
+    padding: 1.5rem 2.5rem 2.5rem;
+
+    @include respond-to(tablet, portrait) {
+      max-width: 55rem;
+      padding: 2.5rem 7rem 2.5rem 4rem;
+    }
+  }
+
+  &__search-input {
+    flex-grow: 1;
+  }
+
+  &__list {
+    @include list--reset;
+    @include scrollbar-thin($color-grey2, mix($color-white, $color-black, 50));
+    flex-grow: 1;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 0 0;
+
+    @include respond-to(tablet, portrait, max) {
+      background: $color-grey2;
+    }
+  }
+
+  &__error {
+    margin: 0 2.5rem;
+    color: $color-danger;
+
+    @include respond-to(tablet, portrait) {
+      margin: 0 4rem;
+    }
+  }
+
+  &__empty-message {
+    margin: 0 2.5rem;
+
+    @include respond-to(tablet, portrait) {
+      margin: 0 4rem;
+    }
+  }
+
+  &__updating {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 4rem;
+    background: rgba($color-white, .5);
+
+    ~.available-overview-item {
+      opacity: .25;
+    }
+  }
+
+  &__updating-icon {
+    display: block;
+    margin: 6rem auto 0;
+
+    @keyframes updating {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    animation: updating 1s steps(8, end) infinite;
+  }
+}

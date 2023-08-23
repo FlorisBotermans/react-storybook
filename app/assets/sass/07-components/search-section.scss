@@ -1,0 +1,10 @@
+.search-section {
+  @include container--center-wide;
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh + 1px); // Workaround to prevent horizontal resizing by always showing the scrollbar
+  margin-top: -4rem;
+  @include respond-to(tablet, portrait) {
+    margin-top: -5.8rem;
+  }
+}

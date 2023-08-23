@@ -1,0 +1,22 @@
+<%- Html.React('Components.EditableOverview', {
+  url: '/ajax/apps/items.json',
+  networkErrorMessage: 'De apps konden niet worden bijgewerkt. Controleer je netwerkverbinding en/of herlaad de pagina.',
+  emptyMessage: 'Je hebt nog geen apps',
+  addText: 'Toevoegen',
+  availableOverview: {
+    title: 'Apps',
+    closeText: 'Sluiten',
+    allText: 'Alle apps',
+    search: {
+      placeholderText: 'Zoeken in app store',
+      btnText: 'Zoek apps'
+    },
+    url: '/ajax/apps/available.json',
+    networkErrorMessage: 'De beschikbare apps konden niet worden opgehaald. Controleer je netwerkverbinding en/of heropen deze overlay.',
+    emptyMessage: 'Er zijn geen beschikbare apps'
+  },
+  addUrl: '/ajax/apps/add.json',
+  addNetworkErrorMessage: 'Het toevoegen van de app is mislukt. Controleer je netwerkverbinding en/of heropen deze overlay.',
+  deleteUrl: '/ajax/apps/delete.json',
+  orderUrl: '/ajax/apps/order.json'
+}) %>

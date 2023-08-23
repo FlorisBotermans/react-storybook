@@ -1,0 +1,8 @@
+main {
+  transition: margin-left .5s;
+  .body--navigation-sticky & {
+    @include respond-to(tablet, landscape) {
+      margin-left: 27rem;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.expositions-section {
+  @extend .container;
+  @extend .container--center-wide;
+  @extend .container--margin-top;
+
+  max-width: 144rem;
+  &__slide {
+    @include exposition-backdrop();
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    max-width: 94rem;
+    height: 100vh;
+    padding: 5rem;
+    max-height: 67.9rem;
+    text-decoration: none;
+    @include respond-to('tablet', 'portrait') {
+      padding: 8rem;
+    }    
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 60px;
+      background-repeat: no-repeat;
+      background-position: right bottom, left top;
+      //sass-lint:disable max-line-length
+      background-image: (
+        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NiA2NiI+CiAgPHBhdGggdHJhbnNmb3JtPSJzY2FsZSgtMSAxKSB0cmFuc2xhdGUoLTY2IDApIiB0cmFuc2xhdGU9IjAgMCIgY2xhc3M9InNxdWFyZSIgZmlsbD0iI2ZmZmZmZiIgZD0iTTAgNjZoNjZMMCAwdjY2eiIgLz4KPC9zdmc+Cg=='),
+        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NiA2NiI+CiAgPHBhdGggdHJhbnNmb3JtPSJzY2FsZSgxIC0xKSB0cmFuc2xhdGUoMCAtNjYpIiB0cmFuc2xhdGU9IjAgMCIgY2xhc3M9InNxdWFyZSIgZmlsbD0iI2ZmZmZmZiIgZD0iTTAgNjZoNjZMMCAwdjY2eiIgLz4KPC9zdmc+Cg==')
+      );
+      //sass-lint:enable max-line-length
+    }
+  }
+  &__slide-title {
+    @extend .h3;
+    display: block;
+    margin: 0;
+  }
+  &__slide-title,
+  &__slide-artist {
+    color: $color-white;
+    position: relative;
+    z-index: 4;
+  }
+  &__slide-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform .33s;
+    background-color: $color-accent1-tint1;
+    background-size: cover;
+    background-position: 50% 50%;
+    .expositions-section__slide:focus &,
+    .expositions-section__slide:hover & {
+      transform: scale(1.1);
+    }
+  }
+  &__button-container {
+    @extend .container;
+    @extend .container--center;
+    @extend .container--margin-bottom;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 94rem;
+  }
+  @mixin button-nav {
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    border: none;
+    outline: 0;
+    padding: 0;
+    background: transparent;
+    fill: $color-accent2-tint1;
+    cursor: pointer;
+  }
+  &__button-prev {
+    @include button-nav;
+    top: 0;
+    left: 0;
+    transform: scale(-1, 1);
+  }
+  &__button-next {
+    @include button-nav;
+    bottom: 0;
+    right: 0;
+  }
+}

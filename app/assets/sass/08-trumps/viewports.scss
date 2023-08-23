@@ -1,0 +1,38 @@
+.mobile {
+  &-hide {
+    @include respond-to(tablet, portrait, max) {
+      display: none;
+    }
+  }
+  &-only {
+    @include respond-to(tablet, portrait) {
+      display: none;
+    }
+  }
+}
+
+// .desktop-large {
+//   &-hide {
+//     @include respond-to(desktop, large) {
+//       display: none;
+//     }
+//   }
+//   &-only {
+//     @include respond-to(desktop, large, max) {
+//       display: none;
+//     }
+//   }
+// }
+
+.print {
+  &-hide {
+    @media print {
+      display: none !important; //sass-lint:disable-line no-important
+    }
+  }
+  &-only {
+    @media screen {
+      display: none !important; //sass-lint:disable-line no-important
+    }
+  }
+}

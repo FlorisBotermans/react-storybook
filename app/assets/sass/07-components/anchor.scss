@@ -1,0 +1,25 @@
+$anchor-hero-fade-tint1: #02001e; // sass-lint:disable-line no-color-hex
+$anchor-hero-fade-tint2: rgba(2, 0, 30, 0);
+
+.anchor {
+  &__title {
+    @extend .h4;
+    flex: 1 0;
+    display: block;
+    margin: 0 0 3.2rem;
+    color: $color-accent2-tint1;
+  }
+
+  &__breadcrumb {
+    font-size: 1.5rem;
+    line-height: 3.1rem;
+    margin: 0 0 1.5rem;
+    @include respond-to('tablet', 'portrait', max) {
+      display: none;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 0;
+  }
+}

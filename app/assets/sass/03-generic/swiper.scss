@@ -1,0 +1,21 @@
+@import '../../../../node_modules/swiper/swiper';
+@import '../../../../node_modules/swiper/modules/pagination/pagination';
+
+.swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  left: initial;
+  bottom: initial;
+  width: auto;
+}

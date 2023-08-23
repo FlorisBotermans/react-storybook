@@ -1,0 +1,10 @@
+node_modules/
+dist/
+storybook-static/
+Website/
+temp/
+*.log
+*.zip
+iisnode/
+*.vs
+*.vscode

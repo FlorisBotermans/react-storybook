@@ -1,0 +1,13 @@
+.calendar-section {
+  &--calendar {
+    @extend .container--center;
+    @extend .container--margin;
+    position: relative;
+    margin-top: 0;
+    background: $color-white;
+  }
+
+  &--content {
+    margin-bottom: 0;
+  }
+}

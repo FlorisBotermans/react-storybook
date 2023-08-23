@@ -1,0 +1,19 @@
+<%- Html.React("Components.ContactSection", {
+  text: '<h2>Contact algemeen</h2> <p>Stichting Hogeschool voor de Kunsten Utrecht.</p><p><b>Bezoekadres</b><br/>Nieuwekade 13<br/>511RV Utrecht</p><a href="tel:0302091509">030-2091509</a> <h2>Contact voor studenten</h2> <p>Mail naar <a href="mailto:sz@hku.nl">sz@hku.nl</a> of bel:<br/><br/><a href="tel:0302091540">030-2091540</a></p>',
+  linkText: 'Alle contactgegevens',
+  linkUrl: '/contact',
+  columns: [
+    {
+      title: 'Over HKU',
+      subTitle: 'Nieuwe verbindingen, nieuwe toepassingen',
+      imageUrls: Image('LinkBlock', 0),
+      linkUrl: '/over-hku'
+    },
+    {
+      title: 'Het werk van HKU',
+      subTitle: 'Expositie van student en alumni',
+      imageUrls: Image('LinkBlock', 1),
+      linkUrl: '/werk-van-hku'
+    }    
+  ]
+}) %>

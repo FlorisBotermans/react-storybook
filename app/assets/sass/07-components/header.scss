@@ -1,0 +1,150 @@
+.header {
+  @include container--margin-bottom;
+  background: $color-accent1-tint1;
+
+  &__image-container {
+    @include clearfix;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  &__container {
+    @include container--center-wide;
+    min-height: 24rem;
+    padding-top: 9rem;
+    padding-bottom: 2.5rem;
+    display: flex;
+    @include respond-to(tablet, portrait) { //container--center-wide tablet portrait overrides
+      padding-top: 9rem;
+      padding-bottom: 2.5rem;
+    }
+    @include respond-to(tablet, landscape, max) {
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    @include respond-to(tablet, landscape) {
+      justify-content: space-between;
+      align-items: flex-end;
+      $header-aspect-ratio: calc((270 / 1170) * 100vw); // See imageDefinitions.js: Header
+      min-height: 27rem; // fallback for browsers that do not support max(...)
+      min-height: max(27rem, $header-aspect-ratio); //sass-lint:disable-line no-duplicate-properties
+      padding-top: 9rem;
+      padding-bottom: 3.2rem;
+      transition: min-height .5s;
+    }
+    @include respond-to(tablet, landscape) {
+      padding-top: 3.2rem;
+    }
+
+    .body--navigation-sticky & {
+      @include respond-to(tablet, landscape) {
+        $header-aspect-ratio: calc((270 / 1170) * (100vw - 27rem)); // See imageDefinitions.js: Header
+        min-height: max(27rem, $header-aspect-ratio);
+      }
+    }
+    
+    .header--fallback-image & {
+      min-height: 17rem;
+    }
+
+    &::before {
+      .header:not(.header--fallback-image) & {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba($color-black, 0) 0%, $color-black 100%);
+      }
+    }
+  }
+
+  &__content-background {
+    position: relative;
+    z-index: 2;
+    margin-right: 4rem;
+    width: fit-content;
+
+    &::before {
+      .header--fallback-image & {
+        content: '';
+        position: absolute;
+        display: block;
+        top: -13.7rem; // at least the minimum height
+        bottom: -100rem;
+        left: -2.5rem;
+        width: calc(2.5rem + 100% - 5rem);
+        background: $color-grey2;
+        @include respond-to(tablet, portrait) {
+          left: -50vw;
+          width: calc(50vw + 100%);
+        }
+      }
+    }
+
+    &::after {
+      .header--fallback-image & {
+        content: '';
+        position: absolute;
+        display: block;
+        top: -13.7rem; // at least the minimum height
+        bottom: -100rem;
+        left: calc(100% - 5rem);
+        width: 20rem;
+        background: linear-gradient(to right, $color-grey2 0%, rgba($color-grey, 0) 100%);
+        @include respond-to(tablet, portrait) {
+          left: 100%;
+          width: 30rem;
+        }
+      }
+    }
+  }
+
+  &__content {
+    width: fit-content;
+    .header--fallback-image & {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__title {
+    @extend .h1;
+    width: fit-content;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    .header--fallback-image & {
+      color: $color-accent1-tint1;
+    }
+  }
+
+  &__btns {
+    display: flex;
+  }
+
+  &__language-switch-btn {
+    margin-left: .2rem;
+    @include respond-to(tablet, landscape) {
+      display: none;
+    }
+  }
+
+  &__information {
+    @include clearfix;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 27.6rem;
+    background: $color-accent1-tint2;
+    @include respond-to(tablet, landscape, max) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  &__information-content {
+    margin: 2rem 3.4rem;
+  }
+}

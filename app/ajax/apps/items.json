@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "index": 1,
+    "icon": "/assets/img/content/outlook.svg",
+    "title": "Webmail",
+    "url": "https://mail.office365.com/",
+    "description": "Webmail is een Office365 applicatie"
+  },
+  {
+    "id": 2,
+    "index": 2,
+    "icon": "/assets/img/content/basecamp.svg",
+    "title": "Basecamp",
+    "url": "https://www.basecamp.com",
+    "description": "Basecamp is een project management applicatie",
+    "supportLink": "https://basecamp.com/support",
+    "supportLinkText": "Supportpagina"
+  }
+]

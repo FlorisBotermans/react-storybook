@@ -1,0 +1,232 @@
+@mixin button-icon-position {
+  position: absolute;
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  right: 0;
+}
+
+@mixin button-icon($color: $color-accent2-tint1) {
+  $color-url-encoded: str-replace(inspect($color), '#', '%23');
+  transform: translateY(-.1rem) rotate(-90deg);
+  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100%25" height="100%25" viewBox="0 0 15.192 9.192"%3E%3Cpath fill="#{$color-url-encoded}" d="M15.192 2.121L8.121 9.192l-.035-.031.01.031H7.071L0 2.121V.707L.707 0h1.414l5.471 5.475L13.071 0h1.414l.707.707z" /%3E%3C/svg%3E') no-repeat; //sass-lint:disable-line max-line-length
+}
+
+@mixin button--small {
+  font-size: 1.5rem;
+}
+
+@mixin button--rounded {
+  font-size: 1.5rem;
+  padding: .9rem 2rem .6rem;
+  line-height: 2rem;
+  border-radius: 0.3rem;
+  background: $color-accent1-tint1;
+  color: $color-white;
+  fill: $color-white;
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background: $color-accent1-tint3;
+    fill: $color-white;
+    color: $color-white;
+  }
+}
+
+@mixin button--bordered {
+  @include button--rounded;
+  border: .1rem solid $color-grey2;
+  padding-top: .8rem;
+  padding-bottom: .5rem;
+  background: transparent;
+  color: $color-accent1-tint1;
+
+  .theme-dark & {
+    background: transparent;
+    color: $color-accent1-tint1;
+  }
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background: $color-grey2;
+    color: $color-accent1-tint1;
+  }
+}
+
+@mixin button--rounded-secondary {
+  @include button--rounded;
+  background: $color-accent2-tint1;
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background: $color-accent2-tint3;
+  }
+
+  .theme-dark & {
+    color: $color-accent2-tint1;
+    fill: $color-accent2-tint1;
+    background: $color-white;
+  }
+
+  .theme-dark &:hover,
+  .theme-dark &:active,
+  .theme-dark &:focus-visible {
+    color: $color-accent1-tint1;
+    fill: $color-accent1-tint1;
+  }
+}
+
+.btn {
+  @include button;
+  
+  &--reset {
+    display: block;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: 0;
+    color: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  &--small {
+    @include button--small;
+  }
+
+  &--margin {
+    margin: 2rem 0;
+    @include respond-to(tablet, portrait) {
+      margin: 3.2rem 0;
+    }
+  }
+
+  &--bordered {
+    @include button; // Because the CKEditor can only contain a single class per style
+    @include button--bordered;
+  }
+
+  &--rounded {
+    @include button; // Because the CKEditor can only contain a single class per style
+    @include button--rounded;
+  }
+
+  &--rounded-secondary {
+    @include button; // Because the CKEditor can only contain a single class per style
+    @include button--rounded-secondary;
+  }
+
+  // button with an arrow icon
+  &--icon {
+    @include button; // Because the CKEditor can only contain a single class per style
+    position: relative;
+    color: $color-accent1-tint1;
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      color: $color-accent2-tint1;
+      
+      .theme-dark & {
+        color: $color-accent2-tint1;
+      }
+    }
+
+    &::after {
+      @include button-icon-position;
+      @include button-icon($color-accent2-tint1);
+      content: '';
+      transition: opacity 0.3s linear, transform 0.3s ease-in;
+      top: calc(50% - #{1.6rem / 2});
+    }
+
+    &.btn--bordered,
+    &.btn--rounded {
+      padding-right: 4rem;
+      transition: padding-right 0.3s linear;
+      &::after {
+        right: 1rem;
+      }
+    }
+
+    &.btn--bordered {
+      &::after {
+        @include button-icon($color-accent1-tint1);
+      }
+      &:hover::after {
+        @include button-icon($color-accent1-tint2);
+      }
+      .theme-dark &::after {
+        @include button-icon($color-white);
+      }
+    }
+
+    &.btn--rounded {
+      &::after {
+        @include button-icon($color-white);
+      }
+      .theme-dark &::after {
+        @include button-icon($color-accent1-tint1);
+      }
+    }
+
+    &.btn--rounded-secondary {
+      &::after {
+        @include button-icon($color-white);
+      }
+      .theme-dark &::after {
+        @include button-icon($color-accent2-tint1);
+      }
+    }
+
+    &.btn--active {
+      &.btn--bordered {
+        padding-right: 2rem;
+      }
+      &::after {
+        opacity: 0;
+        transform: translateX(-1.6rem) rotate(-90deg);
+      }
+    }
+  }
+
+  &--in-form {
+    @extend .btn--rounded;
+    @extend .btn--margin;
+    margin-top: 2rem;
+    padding-right: 4rem;
+
+    @include respond-to(tablet, portrait) {
+      margin-top: 3.2rem;
+    }
+
+    &::after {
+      @include button-icon-position;
+      @include button-icon($color-accent2-tint1);
+      content: '';
+      transition: opacity 0.3s linear, transform 0.3s ease-in;
+      top: calc(50% - #{1.6rem / 2});
+      right: 1rem;
+    }
+  }
+
+  &__icon {
+    @include button-icon-position;
+    top: 0.5rem;
+    transition: opacity 0.3s linear;
+
+    .btn--active & {
+      opacity: 0;
+    }
+
+    .btn--in-form & {
+      display: none;
+    }
+  }
+}

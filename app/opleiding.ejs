@@ -1,0 +1,77 @@
+<%- include('/page/header', { 
+  page: 'Opleiding',
+  showHeader: false,
+}) %>
+
+<%- include('/components/anchor-menu', {
+  anchors: ['De opleiding', 'Wat leer je', 'Wat maak je', 'Actueel', 'Toelating en aanmelden']
+}) %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Audiovisual Media',
+    title: 'Over de opleiding',
+    anchor: 'De opleiding',
+    imageUrls: Image('Anchor', 3),
+    imageCredits: 'Credits',
+    renderHeadline: true,
+    breadcrumb: [
+      { text: 'Home', url: '/home' },
+      { text: 'Studeren', url: '/studeren' },
+      { text: 'HKU Media', url: '/studeren/hku-media' },
+      { text: 'En nog een kruimelpad item', url: '/studeren/hku-media/kruimelpad' },
+    ]
+  }
+}) %>
+<%- include('/components/kenmerken') %>
+<%- include('/components/content') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Audiovisual Media',
+    title: 'Wat leer je bij ons',
+    anchor: 'Wat leer je',
+    imageUrls: Image('Anchor', 0),
+    renderHeadline: false,
+  }
+}) %>
+<%- include('/components/content') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Audiovisual Media',
+    title: 'Wat maak je bij ons',
+    anchor: 'Wat maak je',
+    imageUrls: Image('Anchor', 3),
+    renderHeadline: false,
+  }
+}) %>
+<%- include('/components/content') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Audiovisual Media',
+    title: 'Wat er speelt',
+    anchor: 'Actueel',
+    imageUrls: Image('Anchor', 0),
+    renderHeadline: false,
+  }
+}) %>
+<%- include('/components/content') %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Audiovisual Media',
+    title: 'Is dit iets voor jou?',
+    anchor: 'Toelating en aanmelden',
+    imageUrls: Image('Anchor', 3),
+    renderHeadline: false,
+  }
+}) %>
+<%- include('/components/content') %>
+
+<%- include('/components/timeline') %>
+
+<%- include('/components/cta') %>
+
+<%- include('/page/footer') %>

@@ -1,0 +1,44 @@
+$theme-colors: (
+  1: $color-accent2-tint1,
+  2: $color-accent3-tint1
+);
+
+$theme-backgroundcolor: $color-white;
+$theme-color: $color-accent1-tint1;
+@mixin theme-colors($includeThemeDark: true) {
+  @each $i, $color in $theme-colors {
+    @if $i == 1 {
+      $theme-backgroundcolor: $color-white !global;
+      $theme-color: $color !global;
+      @content;
+    }
+    .theme--accent#{$i} & {
+      $theme-backgroundcolor: $color-white !global;
+      $theme-color: $color !global;
+      @content;
+    }
+    @if $includeThemeDark {
+      @if $i == 1 {
+        .theme-dark & {
+          $theme-backgroundcolor: $color !global;
+          $theme-color: $color-white !global;
+          @content;
+        }
+      }
+      .theme--accent#{$i} .theme-dark & {
+        $theme-backgroundcolor: $color !global;
+        $theme-color: $color-white !global;
+        @content;
+      }
+    }
+  }
+  $theme-color: $color-accent1-tint1 !global;
+}
+
+@mixin theme-dark-colors() {
+  .theme-dark & {
+    @include theme-colors(false) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.contact-section {
+  display: flex;
+  flex-direction: column-reverse;
+  background: $color-accent1-tint1;
+  @include respond-to('tablet', 'portrait') {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    min-height: 100vh;
+  }
+  @include respond-to('desktop', 'small') {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }  
+  &__content {
+    color: $color-white;
+    padding: 2.5rem;
+    h1 {
+      @extend .h2;
+    }
+    h2 {
+      @extend .h3;
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+    h3 {
+      @extend .h4;
+    }
+    a {
+      &[href^='tel:'] {
+        font-size: 1.3em; // sass-lint:disable-line property-units
+        text-decoration: none;
+        font-weight: 700;
+      }
+    }
+    @include respond-to('tablet', 'portrait') {
+      flex-basis: 100%;
+      padding: 3vw; 
+    }
+    @include respond-to('desktop', 'small') {
+      align-self: center;
+      flex-basis: 33.3%;
+      flex-grow: 0; 
+    }
+  }
+  &__content-link {
+    margin-top: 3rem;
+    @include respond-to('desktop', 'small') {
+      margin-top: 7rem;
+    }
+  }
+  &__navigation {
+    display: flex;
+    flex-direction: column-reverse;
+    @include respond-to('tablet', 'portrait') {
+      flex-direction: row;
+      flex: 1;
+    }
+    &--sticky {
+      @include respond-to('desktop', 'small') {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+      }
+    }
+  }
+  &__navigation-item {
+    height: 50vh;
+    @include respond-to('tablet', 'portrait') {
+      padding: 3vw;
+      flex-basis: 50%;
+      flex-grow: 0;
+      height: 75vh;
+    }
+    @include respond-to('desktop', 'small') {
+      height: 100vh;
+    }
+  }  
+}

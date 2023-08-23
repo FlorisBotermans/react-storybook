@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="nl">
+
+<head>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicons/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico" />
+  <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+  <link rel="mask-icon" color="#fe1f4c" href="/assets/img/favicons/safari-pinned-tab.svg">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>HKU
+    <%= (locals.page) ? ` - ${page}` : null %>
+  </title>
+
+  <link href="/assets/css/main.css" rel="stylesheet" />
+  <link rel="preload" href="/assets/fonts/brownpro-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/brownpro-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/brownpro-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/hku-normal.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <script>
+    window.hydrationQueue = window.hydrationQueue || [];
+  </script>
+</head>
+
+<body>
+  <%- include('/components/top-navigation', { accent: locals.accent || 1, hideSearch: locals.hideSearch }) %>
+  <%- include('/components/navigation', { accent: locals.accent || 1 }) %>
+    
+  <main>
+    <div class="skiplink-target" id="main-content" tabindex="-1"></div>

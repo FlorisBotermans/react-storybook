@@ -1,0 +1,45 @@
+@mixin tabs {
+  @extend .list--reset;
+  display: flex;
+}
+
+@mixin tabs-button {
+  @extend .btn;
+  display: block;
+  max-width: 35rem;
+  border-bottom: 0.3rem solid;
+  border-color: transparent;
+  padding: 1rem 1.5rem;
+  color: rgba($color-accent1-tint2, .75);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @include respond-to('tablet', 'portrait') {
+    min-width: 18.5rem;
+    padding: 1.3rem 2.5rem .4rem;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-accent1-tint1;
+  }
+
+  &--active {
+    color: $color-accent1-tint1;
+    border-color: $color-accent2-tint1;
+  }
+}
+
+.tabs {
+  overflow-x: hidden;
+
+  &__list {
+    @include tabs;
+  }
+
+  &__button {
+    @include tabs-button;
+  }
+}

@@ -1,0 +1,77 @@
+.subhome-section {
+  background: $color-accent1-tint3;
+
+  @include respond-to('tablet', 'portrait', max) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__intro,
+  &__blocks {
+    @include respond-to('tablet', 'portrait') {
+      width: 66.666vw;
+    }
+    @include respond-to('desktop', 'large') {
+      width: 33.333vw;
+    }
+  }
+
+  &__blocks {
+    @include respond-to('desktop', 'large') {
+      min-height: 100vh;
+      margin-left: 33.333vw;
+    }
+    .subhome-section--no-nav & {
+      width: auto;
+    }
+    @include respond-to('tablet', 'portrait', max) {
+      order: 3;
+    }
+  }
+
+  &__intro {
+    @include scrollbar-hide;
+    padding: 2.5rem;
+    background: $color-white;
+    @include respond-to('desktop', 'large') {
+      position: fixed;
+      overflow: auto;
+      height: 100vh;
+      padding: 10vh 5%;
+    }
+    @include respond-to('desktop', 'large', max) {
+      padding-top: 9.5rem;
+    }
+    .subhome-section--no-nav & {
+      width: auto;
+      @include respond-to('desktop', 'large') {
+        width: 33.333vw;
+      }
+    }
+    @include respond-to('tablet', 'portrait', max) {
+      order: 1;
+    }
+  }
+
+  &__nav {
+    @include respond-to('tablet', 'portrait', max) {
+      order: 2;
+    }
+  }
+
+  &__intro-title {
+    @include h3-desktop();
+    margin-top: 0;
+    @include respond-to('desktop', 'large') {
+      @include h2-desktop();
+    }
+  }
+
+  &__blocks-item {
+    height: 50vh;
+    min-height: 40rem;
+    @include respond-to('tablet', 'portrait') {
+      height: 45vh;
+    }
+  }
+}

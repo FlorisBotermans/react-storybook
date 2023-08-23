@@ -1,0 +1,6 @@
+[id^='react_'] {
+  display: inline;
+  @supports(display: contents) {
+    display: contents;
+  }
+}

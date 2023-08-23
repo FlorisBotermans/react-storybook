@@ -1,0 +1,15 @@
+.swiper-pagination {
+  text-align: left;
+  margin: 1rem 2.5rem;
+  @include respond-to('tablet', 'portrait') {
+    margin: 2rem 8rem;
+  }
+}
+.swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+}
+.swiper-pagination-bullet-active {
+  background: $color-accent2-tint1;
+}
+

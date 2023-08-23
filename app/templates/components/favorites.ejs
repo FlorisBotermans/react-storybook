@@ -1,0 +1,7 @@
+<%- Html.React('Components.EditableOverview', {
+  url: '/ajax/follow/items.json',
+  networkErrorMessage: 'De favorieten konden niet worden bijgewerkt. Controleer je netwerkverbinding en/of herlaad de pagina.',
+  emptyMessage: 'Je hebt nog geen favorieten. Ga naar een pagina die je als favoriet wilt markeren en klik op de knop met een sterretje die onder de pagina titel staat.',
+  deleteUrl: '/ajax/follow/toggle.json',
+  orderUrl: '/ajax/follow/order.json'
+}) %>

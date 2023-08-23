@@ -1,0 +1,11 @@
+@mixin p {
+  margin: 0 0 1.6rem;
+
+  @include respond-to('tablet', 'portrait') {
+    margin: 0 0 1.8rem;
+  }
+}
+
+p:not([class]) {
+  @include p;
+}

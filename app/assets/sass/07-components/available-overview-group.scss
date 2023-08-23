@@ -1,0 +1,104 @@
+.available-overview-group {
+  display: flex;
+  flex-direction: column;
+  transition: margin-bottom .15s, flex-grow .3s;
+
+  @include respond-to(tablet, portrait) {
+    .available-overview-group + & {
+      margin-top: -1rem;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 0;
+    @include respond-to(tablet, portrait) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &:not(.available-overview-group--expanded) {
+    margin-bottom: .5rem;
+
+    @include respond-to(tablet, portrait) {
+      margin-bottom: 1rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+      @include respond-to(tablet, portrait) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &--expanded:last-child {
+    flex-grow: 1;
+  }
+
+  &__btn {
+    box-shadow: rgba($color-black, .1) 0 .2rem 3rem 1rem;
+    margin: 0 2.5rem;
+    border: none;
+    padding: 0;
+    color: $color-accent1-tint1;
+    cursor: pointer;
+
+    @include respond-to(tablet, portrait) {
+      margin: 0 4rem;
+    }
+  
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  &__btn-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to top, mix($color-white, $color-grey, 33) 0, $color-white 2rem);
+    padding: .5rem .75rem;
+
+    @include respond-to(tablet, portrait) {
+      padding: 1rem;
+    }
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    width: 1.6rem;
+    height: 2rem;
+    margin-left: .4rem;
+    margin-right: .9rem;
+    object-fit: contain;
+    transition: transform .15s;
+
+    .available-overview-group--expanded & {
+      transform: translateY(-.2rem) scaleY(-1);
+    }
+  }
+
+  &__title {
+    padding: .6rem 0 .5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__content {
+    .available-overview-group:last-child & {
+      flex-grow: 1; // To retain the bottom box-shadow of the last item in the list
+    }
+  }
+
+  &__list {
+    @include list--reset;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0 .5rem 2.5rem;
+    
+    @include respond-to(tablet, portrait) {
+      padding: 1rem 0 1rem 4rem;
+    }
+  }
+}

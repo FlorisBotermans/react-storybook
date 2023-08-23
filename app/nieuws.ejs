@@ -1,0 +1,19 @@
+<%- include('/page/header', { 
+  page: 'Agenda',
+  showHeader: false
+}) %>
+
+<%- include('/components/anchor-section', {
+  data: {
+    pageTitle: 'Corona-update: online onderwijs en digitale diensten',
+    title: 'Over dit evenement',
+    anchor: 'De opleidingen',
+    renderHeadline: false,
+  }
+}) %>
+
+<%- include('/components/content') %>
+
+<%- include('/components/accordion') %>
+
+<%- include('/page/footer') %>

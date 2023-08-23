@@ -1,0 +1,42 @@
+.skiplinks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 0.1rem;
+  pointer-events: none;
+
+  @include respond-to(tablet, portrait) {
+    position: absolute;
+  }
+  &__list {
+    @extend .list--reset;
+  }
+  &__btn {
+    position: absolute;
+    left: -1000rem;
+    top: 0;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    max-width: 100%;
+    line-height: 1;
+    font-size: 1.8rem;
+    pointer-events: all;
+    color: $color-white;
+    background: $color-accent2-tint1;
+    @include respond-to(tablet, portrait) {
+      padding: 2rem;
+      font-size: 2.4rem;
+    }
+    &:focus {
+      left: auto;
+    }
+  }
+}
+
+//sass-lint:disable no-ids
+.skiplink-target {
+  outline: 0;
+}
+//sass-lint:enable no-ids

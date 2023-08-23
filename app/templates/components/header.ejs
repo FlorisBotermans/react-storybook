@@ -1,0 +1,23 @@
+<%- Html.React("Components.Header", {
+  title: locals.title || 'Header met een lange titel om te kijken wat er gebeurd',
+  image: {
+    imageUrls: Image('Header', 2),
+    isFallback: true
+  },
+  information: locals.information !== undefined ? locals.information : `
+    <h2 class="h4">Information header</h2>
+    <p>Lorem ipsum</p>
+  `,
+  follow: locals.follow !== false ? {
+    following: false,
+    followText: 'Favoriet maken',
+    unfollowText: 'Niet meer favoriet maken',
+    url: '/ajax/follow/toggle.json',
+    unfollowUrl: '/ajax/follow/toggle.json',
+    networkErrorMessage: 'Er is geen verbinding met de server. Controleer je internet verbinding.'
+  } : undefined,
+  language: {
+    url: '/home',
+    text: 'en'
+  }
+}) %>

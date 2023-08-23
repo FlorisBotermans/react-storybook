@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+width="43" height="17" viewBox="0 0 43 17">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'HKU-Normal';
+        src: url('/assets/fonts/hku-normal.ttf');
+      }
+    </style>
+  </defs>
+  <text x="0" y="17" fill="#FE1F4C" font-family="HKU-Normal" font-size="14">HKU</text>
+</svg>

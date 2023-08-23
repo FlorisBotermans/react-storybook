@@ -1,0 +1,34 @@
+{
+  "debug": {
+    "optimize": false,
+    "sourcemaps": true,
+    "assetsPaths": [
+      "dist/assets"
+    ],
+    "apiBaseUrl": "/ajax"
+  },
+  "release": {
+    "optimize": true,
+    "sourcemaps": true,
+    "assetsPaths": [
+      "dist/assets"
+    ],
+    "apiBaseUrl": "/ajax"
+  },
+  "proto": {
+    "optimize": true,
+    "sourcemaps": false,
+    "assetsPaths": [
+      "dist/assets"
+    ],
+    "apiBaseUrl": "/ajax"
+  },
+  "publish": {
+    "optimize": true,
+    "sourcemaps": false,
+    "assetsPaths": [
+      "../HKU.Portalen.MVC/wwwroot/assets"
+    ],
+    "apiBaseUrl": ""
+  }
+}
